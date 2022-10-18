@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="../css/main-styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="../css/main-page.css">
+    <script src="https://kit.fontawesome.com/70da13af9d.js" crossorigin="anonymous"></script>
+    <title>MAIN PAGE</title>
+</head>
+
+<body>
+    <div class="base-container">
+        <nav>
+            <img src="../img/logo-czarne.png">
+            <ul>
+                <li>
+                    <i class="fas-solid fa-house"></i>
+                    <a href="/mainPage" class="button">Main page</a>
+                </li>
+                <li>
+                    <i class="fas fa-user"></i>
+                    <a href="/myData" class="button">My Data</a>
+                </li>
+                <li>
+                    <i class="fas fa-utensils"></i>
+                    <a href="/myEstates" class="button">My Estates</a>
+                </li>
+                <li>
+                    <i class="fas fa-heart"></i>
+                    <a href="/favorite" class="button">Favorite</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <a href="/logout" class="button">Log out</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <header>
+                <div class="search-bar">
+                    <form>
+                        <input placeholder="search real-estate">
+                    </form>
+                </div>
+                <div class="add-announcement">
+                    <i class="fa-solid fa-plus"></i>
+                    add announcement
+                </div>
+            </header>
+            <section class="announcements">                    
+                <div id="announcement-1">
+                    <img src="../img/dom-wolnostojacy.jpg">
+                    <div>
+                        <h2>Dom wolnostojący</h2>
+                        <p>Dom wolnostojacy, w niedalekiej odleglosci od centrum. Dom posiada 4 pokoje, lazienke, kuchnie oraz aneks jadalny.</p>
+                        <div class="social-section">
+                            <i class="fas fa-heart">600</i>
+                        </div>
+                    </div>
+                </div>
+                <div id="announcement-2">
+                    <img src="../img/kawalerka.jpg">
+                    <div>
+                        <h2>Mieszkanie w centrum</h2>
+                        <p>Mieszkanie w centrum. Posiada 2 pokoje, lazienke, kuchnie oraz aneks jadalny.</p>
+                        <div class="social-section">
+                            <i class="fas fa-heart">600</i>
+                        </div>
+                    </div>
+                </div>
+                <div id="announcement-3">
+                    <img src="../img/dom-szeregowy.jpg">
+                    <div>
+                        <h2>Dom szeregowy</h2>
+                        <p>Dom szeregowy, w niedalekiej odleglosci od centrum. Dom posiada 2 pokoje, lazienke, kuchnie oraz aneks jadalny.</p>
+                        <div class="social-section">
+                            <i class="fas fa-heart">600</i>
+                        </div>
+                    </div>
+                </div>
+                <div id="announcement-4">
+                    <img src="../img/kawalerka.jpg">
+                    <div>
+                        <h2>Kawalerka</h2>
+                        <p>Kawalerka, w niedalekiej odleglosci od centrum. Posiada 1 pokoj, lazienke oraz kuchnie.</p>
+                        <div class="social-section">
+                            <i class="fas fa-heart">600</i>
+                        </div>
+                    </div>
+                </div>          
+            </section>
+        </main>
+
+    </div>
+</body>
+
+<style>
+    
+.base-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 100vw;
+} 
+body{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+nav{
+    background: transparent linear-gradient(180deg, #3D8EF3 0%, #2251B9 100%) 0% 0% no-repeat padding-box;
+    width: 20vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+nav>img{
+    width: 60%;
+    margin: 2em auto;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+    border-bottom: 1px solid gray;
+}
+.search-bar>form>input {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #707070;
+    border-radius: 23px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0.72px;
+    color: #A8A8A8;
+    margin: 0;
+    box-sizing: border-box;
+}
+.add-announcement>i {
+    padding: 1em 1em;
+}
+.add-announcement {
+    background: #2E6CD3 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 1.5em;
+    color: white;
+    letter-spacing: 0.1em;
+    text-align: center;
+    width: 20%;
+}
+
+.search-bar {
+    width: 70%;
+}
+.search-bar>form>input {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #707070;
+    border-radius: 23px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0.72px;
+    color: #A8A8A8;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    display: inline-block;
+    line-height: 2em;
+}
+li i{
+    font-size: 1.5em;
+}
+
+.button{
+    border: 1px solid #FFFFFF;
+    border-radius: 1em;
+    margin-left: 1em;
+    text-align: center;
+    letter-spacing: 0.72px;
+    color: #FFFFFF;
+    padding: 0.2rem;
+    width: 60%;
+}
+
+ul{
+    list-style-type: none;
+    color: white;
+    font: normal normal normal 20px/27px Segoe UI;
+    letter-spacing: 0.72px;
+    color: #FFFFFF;
+    height: 100%;
+    width: calc(100% - 40px);
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+}
+
+li{
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+li:last-child{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.fa, 
+.fas,
+.fa-solid,
+.fas-solid{
+    font-weight: 900;
+    width: 1em;
+}
+
+</style>
