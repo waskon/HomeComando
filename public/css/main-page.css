@@ -1,19 +1,20 @@
-
 body {
-    margin: 0%;
+    margin: 0;
+    box-sizing: border-box;
+    max-height: 100vh;
+    overflow: hidden;
 }
 .base-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 100vh;
     width: 100vw;
 }
 
 nav {
-    background-color: #d8d7d7 !important;
+    background-color: #eeeeee !important;
     width: 20vw;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -50,6 +51,7 @@ main {
     flex-direction: column;
     height: 100vh;
     width: 100vw;
+    max-height: 100vh;
 }
 
 header {
@@ -60,14 +62,26 @@ header {
 }
 
 .search-bar {
-    width: 70%;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
 }
+.search-bar>form{
+    width: 25em;
+    margin-top: 0.8em;
+}
+.search-button{
+    height: 5vh;
+    margin-top: 0.8em;
+}
+
 .search-bar>form>input {
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border: 1px solid #707070;
     border-radius: 23px;
     width: 100%;
+    height: 2em;
     text-align: center;
     letter-spacing: 0.72px;
     color: #A8A8A8;
@@ -76,13 +90,15 @@ header {
 }
 
 .add-announcement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #2E6CD3 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 1.5em;
     color: white;
     letter-spacing: 0.1em;
-    text-align: center;
-    width: 20%;
+    min-width: 15em;
 }
 .add-announcement>i {
     padding: 1em 1em;
@@ -115,6 +131,9 @@ header {
 }
 
 li {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
     text-align: left;
     margin-bottom: 1em;
 }
@@ -128,7 +147,7 @@ li:last-child {
 }
 
 .announcements>div {
-    background-color: #d8d7d7 ;
+    background-color: #eeeeee ;
     border: 1px solid gray;
     border-radius: 1em 1em 0 0;
     height: 400px;
@@ -145,17 +164,39 @@ li:last-child {
 .announcements>div>div {
     height: 50%;
     margin: 1em;
-    color: #2699FB;
-    background-color: #d8d7d7;
+    color: #003666;
+    background-color: #eeeeee;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-section {
+.announcements {
     display: flex;
     flex-direction: column;
     padding: 2em;
     gap: 2em;
     overflow: auto;
+}
+
+.announcement-info{
+    display: flex;
+    flex-direction: row;
+    gap: 65%;
+}
+
+.price{
+    font-size: 30px;
+    text-align: right;
+    margin: 0%;
+    height: auto;
+}
+
+.button-label {
+    font-size: clamp(0.8rem, 1vw, 1.1rem);
+}
+@media (max-width: 800px) {
+    .button-label{
+        visibility: hidden;
+    }
 }
