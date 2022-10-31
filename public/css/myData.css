@@ -1,0 +1,69 @@
+.base-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    /* width: 100vw; */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* width: 100vw; */
+}
+
+.wrapper {
+    text-align: center;
+    color: #2E6CD3;
+    -webkit-box-shadow: 1px 6px 6px -2px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 1px 6px 6px -2px rgba(66, 68, 90, 1);
+    box-shadow: 1px 6px 6px -2px rgba(66, 68, 90, 1);
+    background-color: #eeeeee ;
+}
+
+.content {
+    height: 80vw;
+}
+
+.user-data {
+    display: flex;
+    justify-content: left;
+    /* margin-right: 3em; */
+}
+
+.change-password {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 8px 0;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6em;
+}
+
+.user-data{
+    margin-top: 2em;
+}
+
+.head {
+    color: #2E6CD3;
+    font-size: x-large;
+}
+
+.head-label {
+    font-size: large;
+}
+
+.group-column {
+    text-align: center;
+    margin: auto;
+}
+.label1, .label2, .label3 {
+    width: max(10rem, 60%);
+}
+
+.button-38-filled{
+    margin-top: 1em;
+}
