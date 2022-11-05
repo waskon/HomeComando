@@ -1,0 +1,42 @@
+.notice-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.notice-form>form{
+    width: 60vw;
+    margin-left: 4em;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    text-align: center;
+    color: #2E6CD3;
+    -webkit-box-shadow: 1px 6px 6px -2px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 1px 6px 6px -2px rgba(66, 68, 90, 1);
+    box-shadow: 1px 6px 6px -2px rgba(66, 68, 90, 1);
+    background-color: #eeeeee ;
+    margin-bottom: 2em;
+}
+
+.price-form,
+    .measurement-form {
+        width: 15vw;
+        
+    }
+
+    .details{
+        display: flex;
+        flex-direction: row;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .measurement-form{
+        margin-left:auto;
+    }
+
+    .title{
+        font-size: x-large;
+        margin-bottom: 0.8em;
+    }
