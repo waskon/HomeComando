@@ -8,6 +8,10 @@ class DefaultController extends AppController{
         $this->render('login');
     }
 
+    public function register() {
+        $this->render('register');
+    }
+
     public function mainPage() {
         $this->render('mainPage');
     }
@@ -16,12 +20,16 @@ class DefaultController extends AppController{
         $this->render('myData');
     }
 
-    public function diet() {
-        $this->render('diet');
+    public function myEstates() {
+        $this->render('myEstates');
     }
 
-    public function calendary() {
-        $this->render('calendary');
+    public function favorite() {
+        $this->render('favorite');
+    }
+
+    public function addNotice() {
+        $this->render('addNotice');
     }
     
 }

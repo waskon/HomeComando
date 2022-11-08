@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" type="text/css" href="../css/register.css" /> -->
-    <link rel="stylesheet" type="text/css" href="../css/main-styles.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="public/css/register.css" /> -->
+    <link rel="stylesheet" type="text/css" href="public/css/main-styles.css" />
     <title>REGISTRY</title>
 </head>
 
 <body>
     <div class="login-container">
         <div class="login-wrapper">
-            <div class="visiting-card flex-center">
-                <img style="width: 20rem;" src="../img/logo-czarne.png" alt="">
+            <div class="visiting-background flex-center">
+                <div class="visiting-card">
+                    <img style="width: 20rem;" src="public/img/logo-czarne.png" alt="">
+                </div>
             </div>
             <div class="registry-panel">
                 <div class="credential-wrapper flex-column">
@@ -96,8 +98,13 @@
     }
 
     .visiting-card {
+        background-color: #eeeeee !important;
         margin-left: 1em;
         margin-right: 1em;
+    }
+
+    .visiting-background {
+        background-color: #eeeeee !important;
     }
 
     .logo-wrapper {

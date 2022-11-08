@@ -29,7 +29,6 @@ main {
 .user-data {
     display: flex;
     justify-content: left;
-    /* margin-right: 3em; */
 }
 
 .change-password {
@@ -66,4 +65,9 @@ main {
 
 .button-38-filled{
     margin-top: 1em;
+}
+
+.label2{
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
