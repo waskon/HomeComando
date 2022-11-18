@@ -47,13 +47,13 @@
             <section class="notice-form">
                 <form action="add-notice" method="POST" ENCTYPE="multipart/form-data">
                     <div class="messages">
-                        <!-- <?php
+                        <?php
                             if(isset($messages)){
                                 foreach($messages as $message) {
                                     echo $message;
                                 }
                             }
-                        ?> -->
+                        ?>
                     </div>
 
                     <input class="title" name="title" type="text" placeholder="title">

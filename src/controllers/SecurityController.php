@@ -7,16 +7,17 @@ class SecurityController extends AppController
 {
     public function login()
     {
-        $user = new User('jsnow@pk.edu.pl', 'admin', 'Johny', 'Snow');
-        $user1 = new User('admin@admin.pl', 'admin', 'Adam', 'Walec');
+        $user = new User('jsnow@pk.edu.pl', 'admin',
+            'Johny', 'Snow', 'Poland');
 
         if (!$this->isPost()) {
             return $this->render('login');
         }
 
-        $email = $_POST['e-mail'];
+        $email = $_POST['email'];
         $password = $_POST['password'];
-
+        var_dump($_POST);
+//
         if($user->getEmail() !== $email){
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
@@ -24,11 +25,10 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Wrong password']]);
         }
 
-//        return $this->render('mainPage');
+        return $this->render('mainPage');
 
-        $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/mainPage");
-
+//        $url = "http://$_SERVER[HTTP_HOST]";
+//        header("Location: {$url}/mainPage");
     }
 
 }
