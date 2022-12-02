@@ -45,7 +45,7 @@
                 </h1>
             </header>
             <section class="notice-form">
-                <form action="add-notice" method="POST" ENCTYPE="multipart/form-data">
+                <form action="addNotice" method="POST" ENCTYPE="multipart/form-data">
                     <div class="messages">
                         <?php
                             if(isset($messages)){
@@ -59,9 +59,9 @@
                     <input class="title" name="title" type="text" placeholder="title">
                     <textarea name="description" rows=5 placeholder="description"></textarea>
                     <div class="details">
-                        <input class="price-form" name="title" type="text" placeholder="price">
+                        <input class="price-form" name="price" type="text" placeholder="price">
                         <text>zł</text>
-                        <input class="measurement-form" name="title" type="text" placeholder="measurement">
+                        <input class="measurement-form" name="size" type="text" placeholder="measurement">
                         <text>m2</text>
                     </div>
                     <input type="file" name="file" /><br />

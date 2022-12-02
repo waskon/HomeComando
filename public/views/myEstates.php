@@ -78,11 +78,10 @@
             </div>
             <section class="announcements">
                 <div id="announcement-1">
-                    <img src="public/img/dom-wolnostojacy.jpg">
+                    <img src="public/uploads/<?= $announcement->getImage() ?>">
                     <div>
-                        <h2>Dom wolnostojący</h2>
-                        <p>Dom wolnostojacy, w niedalekiej odleglosci od centrum. Dom posiada 4 pokoje, lazienke,
-                            kuchnie oraz aneks jadalny.</p>
+                        <h2><?= $announcement->getTitle() ?></h2>
+                        <p><?= $announcement->getDescription() ?></p>
                         <div class="announcement-info">
                             <div class="social-section">
                                 <i class="material-symbols-rounded"
@@ -92,7 +91,8 @@
                                 </text>
                             </div>
                             <text class="price ">
-                                Price = 1 000 000zł
+                                1 000 000zł
+<!--                                --><?//= $announcement->getPrice() ?>
                             </text>
                         </div>
                     </div>

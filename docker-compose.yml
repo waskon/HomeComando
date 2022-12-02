@@ -18,3 +18,11 @@ services:
       dockerfile: docker/php/Dockerfile
     volumes:
       - .:/app/
+
+#  postgres:
+#    image: "postgres:alpine3.17"
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      POSTGRES_PASSWORD: "homecomando"
+#      PGDATA: /var/lib/postgresql/data/
