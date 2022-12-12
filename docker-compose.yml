@@ -19,10 +19,10 @@ services:
     volumes:
       - .:/app/
 
-#  postgres:
-#    image: "postgres:alpine3.17"
-#    ports:
-#      - "5432:5432"
-#    environment:
-#      POSTGRES_PASSWORD: "homecomando"
-#      PGDATA: /var/lib/postgresql/data/
+  postgres:
+    build:
+      context: .
+      dockerfile: docker/postgres/Dockerfile
+    ports:
+      - "5432:5432"
+
