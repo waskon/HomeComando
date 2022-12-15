@@ -32,7 +32,7 @@ CREATE TABLE Announcement_Details
     details_Id                        SERIAL         NOT NULL,
     title                             varchar(200)   NOT NULL,
     description                       varchar(2000)  NOT NULL,
-    path_to_image                     varchar(200)   NOT NULL,
+    image                             varchar(200)   NOT NULL,
     price                             numeric(10, 2) NOT NULL,
     size                              numeric(10, 2) NOT NULL,
     phone_number                      varchar(15)    NOT NULL,
@@ -109,26 +109,52 @@ INSERT INTO Announcement_Location
 VALUES (1, 'Sezamowa', '25B', '3', '30-526', 'Poznań');
 INSERT INTO Announcement_Location
 VALUES (2, 'Ogrodowa', '2A', '5', '24-532', 'Kraków');
+INSERT INTO Announcement_Location
+VALUES (3, 'Goździkowa', '23A', '1', '24-532', 'Kraków');
+INSERT INTO Announcement_Location
+VALUES (4, 'Zbożowa', '26B', '7', '24-532', 'Kraków');
+INSERT INTO Announcement_Location
+VALUES (5, 'Zielona', '29B', '2', '24-532', 'Kraków');
 
-INSERT INTO Announcement_Details (details_Id, title, description, path_to_image, price, size, phone_number,
+INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
                                   Announcement_ann_Id, Announcement_Location_location_Id)
 VALUES (1, 'Piękny, nowy dom Orłowo/Mały Kack, widok na morze!',
         'Sprzedam wyjątkowy dom w stanie deweloperskim o powierzchni całkowitej ok. 330m2, położony w Gdyni na granicy dzielnic: Orłowo i Mały Kack, na działce ok. 500m2, super lokalizacja, wszędzie blisko: w niedalekiej odległość od plaży i mola w Orłowie ale także od centrum Gdyni lub Sopotu.',
-        'PATH',
+        'dom_z_widokiem_na_morze.jpeg',
         3990000.00,
         335.00,
         '+48 500 700 234',
         1, 1);
 
-INSERT INTO Announcement_Details (details_Id, title, description, path_to_image, price, size, phone_number,
+INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
                                   Announcement_ann_Id, Announcement_Location_location_Id)
 VALUES (2, '2-pokojowy apartament 44m2 + ogródek2-pokojowy apartament 44m2 + ogródek',
         '2-pokojowy apartament numer C1-0-3 na parterze w budynku C w Inwestycji Lokum Siesta Dewelopera Lokum Deweloper. Trasa pieszo-rowerowa wzdłuż rzeki Wilgi (1 minuta spacerem). Przystanki autobusowe i tramwajowe w promieniu 9 minut spacerem. Żłobek i przedszkole Krasnal (7 minut spacerem)',
-        'PATH',
+        'kawalerka.jpg',
         679000.00,
         44.66,
         '+48 525 541 275',
         2, 2);
+
+INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
+                                  Announcement_ann_Id, Announcement_Location_location_Id)
+VALUES (3, 'Mieszkanie w centrum',
+        'Mieszkanie w centrum. Posiada 2 pokoje, lazienke, kuchnie oraz aneks jadalny.',
+        'kawalerka2.jpg',
+        600000.00,
+        50.00,
+        '+48 759 262 234',
+        3, 3);
+
+INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
+                                  Announcement_ann_Id, Announcement_Location_location_Id)
+VALUES (4, 'Dom szeregowy',
+        'Dom szeregowy, w niedalekiej odleglosci od centrum. Dom posiada 2 pokoje, lazienke, kuchnie oraz aneks jadalny.',
+        'dom-szeregowy.jpg',
+        700000.00,
+        100.00,
+        '+48 553 700 234',
+        4, 4);
 
 -- End of file.
 

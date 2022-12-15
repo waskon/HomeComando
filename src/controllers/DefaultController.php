@@ -12,9 +12,9 @@ class DefaultController extends AppController{
         $this->render('register');
     }
 
-    public function mainPage() {
-        $this->render('mainPage');
-    }
+//    public function mainPage() {
+//        $this->render('mainPage');
+//    }
 
     public function myData() {
         $this->render('myData');

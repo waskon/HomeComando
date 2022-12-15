@@ -7,6 +7,7 @@ class Announcement
     private $image;
     private $price;
     private $size;
+    private $number;
 
     /**
      * @param $title
@@ -14,14 +15,16 @@ class Announcement
      * @param $image
      * @param $price
      * @param $size
+     * @param $number
      */
-    public function __construct($title, $description, $image, $price, $size)
+    public function __construct($title, $description, $image, $price, $size, $number)
     {
         $this->title = $title;
         $this->description = $description;
         $this->image = $image;
         $this->price = $price;
         $this->size = $size;
+        $this->number = $number;
     }
 
     public function getTitle() : string
@@ -73,6 +76,16 @@ class Announcement
     public function setSize(float $size)
     {
         $this->size = $size;
+    }
+
+    public function getNumber() : string
+    {
+        return $this->number;
+    }
+
+    public function setNumber() : string
+    {
+        return $this->number;
     }
 
 
