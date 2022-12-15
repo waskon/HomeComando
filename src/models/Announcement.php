@@ -7,7 +7,9 @@ class Announcement
     private $image;
     private $price;
     private $size;
-    private $number;
+    private $phoneNumber;
+    private $propertyType;
+    private $purpose;
 
     /**
      * @param $title
@@ -16,15 +18,19 @@ class Announcement
      * @param $price
      * @param $size
      * @param $number
+     * @param $propertyType
+     * @param $purpose
      */
-    public function __construct($title, $description, $image, $price, $size, $number)
+    public function __construct($title, $description, $image, $price, $size, $phoneNumber, $propertyType, $purpose)
     {
         $this->title = $title;
         $this->description = $description;
         $this->image = $image;
         $this->price = $price;
         $this->size = $size;
-        $this->number = $number;
+        $this->phoneNumber = $phoneNumber;
+        $this->propertyType = $propertyType;
+        $this->purpose = $purpose;
     }
 
     public function getTitle() : string
@@ -78,14 +84,34 @@ class Announcement
         $this->size = $size;
     }
 
-    public function getNumber() : string
+    public function getPhoneNumber() : string
     {
-        return $this->number;
+        return $this->phoneNumber;
     }
 
-    public function setNumber() : string
+    public function setPhoneNumber() : string
     {
-        return $this->number;
+        return $this->phoneNumber;
+    }
+
+    public function getPropertyType() : string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPropertyType() : string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function getPurpose() : string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPurpose() : string
+    {
+        return $this->phoneNumber;
     }
 
 

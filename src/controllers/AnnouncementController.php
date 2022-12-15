@@ -34,11 +34,25 @@ class AnnouncementController extends AppController
             );
 
             $announcement = new Announcement($_POST['title'], $_POST['description'], $_FILES['file']['name'],
-                $_POST['price'], $_POST['size']);
+                $_POST['price'], $_POST['size'], $_POST['phoneNumber'],$_POST['propertyType'],$_POST['purpose']);
 
         return $this->render("myEstates", ["messages" => $this->messages, 'announcement' => $announcement]);
         }
         $this-> render("addNotice", ['messages' => $this->messages]);
+    }
+
+    public function search()
+    {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+        if($contentType === "application/json"){
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+
+            header('Content-type: application/json');
+            http_response_code(200);
+
+            echo json_encode($this->announcementRepository->getAnnouncementByTitle($decoded['search']));
+        }
     }
 
     private function validate(array $file) : bool

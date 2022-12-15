@@ -15,7 +15,7 @@ class AnnouncementRepository extends Repository
         $stmt->execute();
 
         $announcement = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($announcement == false){
+        if(!$announcement){
             return null;
         }
 
@@ -25,15 +25,17 @@ class AnnouncementRepository extends Repository
             $announcement['image'],
             $announcement['price'],
             $announcement['size'],
-            $announcement['number']
+            $announcement['number'],
+            $announcement['propertyType'],
+            $announcement['purpose']
         );
     }
 
-    public function addAnnounjcement(Announcement $announcement): void
+    public function addAnnouncement(Announcement $announcement): void
     {
         $date = new DateTime();
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO announcement_details (title, description, path_to_image, price, size, phone_number)
+            INSERT INTO announcement_details (title, description, image, price, size, phone_number)
             VALUES (?, ?, ?, ?, ?, ?)
         ');
 
@@ -46,7 +48,10 @@ class AnnouncementRepository extends Repository
             $announcement->getImage(),
             $announcement->getPrice(),
             $announcement->getSize(),
-            $announcement->getNumber(),
+            $announcement->getPhoneNumber(),
+            $announcement->getPropertyType(),
+            $announcement->getPurpose()
+
 
 //            $announcement->format('Y-m-d'),
 //            $assignedById
@@ -67,10 +72,24 @@ class AnnouncementRepository extends Repository
                 $notice['image'],
                 $notice['price'],
                 $notice['size'],
-                $notice['number']
+                $notice['phoneNumber'],
+                $notice['propertyType'],
+                $notice['purpose']
             );
         }
 
         return $result;
+    }
+
+    public function getAnnouncementByTitle(string $searchString){
+        $searchString = '%'.strtolower($searchString).'%';
+        $stmt = $this->database->connect()->prepare('
+        SELECT * FROM Announcement_details WHERE LOWER(title) LIKE :search OR LOWER(description) LIKE :search
+        ');
+        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     }
 }

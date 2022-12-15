@@ -1,6 +1,3 @@
-<?php
-//session_start();
-//?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/navigation.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <script type="text/javascript" src="./public/js/search.js" defer></script>
     <title>MAIN PAGE</title>
 </head>
 
@@ -43,23 +41,14 @@
     <main>
         <header>
             <div class="search-bar">
-                <form action="" method="GET">
-                    <label>
-                        <input type="text" name="search"
-                               value="<?php
-    
-                               if (isset($_GET['search'])) {
-                                   echo $_GET['search'];
-    //                               $_SESSION['title'] = "search";
-                               } ?>"
-                               class="form-control" placeholder="search real-estate"
-                        >
-                    </label>
-                    <button type="submit" class="search-button">
-                        search
-                    </button>
-                </form>
+                <label>
+                    <input placeholder="search real-estate">
+                </label>
             </div>
+<!--            <button type="submit" class="search-button">-->
+<!--                search-->
+<!--            </button>-->
+<!--            </form>-->
             <div class="add-announcement">
                 <i class="material-symbols-rounded" style="font-size: 1em">add</i>
                 add announcement
@@ -89,31 +78,56 @@
             </div>
         </div>
         <section class="announcements">
-            <?php foreach ($announcements as $announcement):?>
-            <div id="announcement-1">
-                <img src="public/uploads/<?= $announcement->getImage() ?>">
-                <div>
-                    <h2><?= $announcement->getTitle(); ?></h2>
-                    <p><?= $announcement->getDescription(); ?></p>
-                    <div class="announcement-info">
-                        <div class="social-section">
-                            <i class="material-symbols-rounded"
-                               style="font-size: 2em; margin-top: 0.1em;">favorite</i>
-                            <text>
-                                500
+            <?php foreach ($announcements as $announcement): ?>
+                <div id="announcement-1">
+                    <img src="public/uploads/<?= $announcement->getImage() ?>">
+                    <div>
+                        <h2><?= $announcement->getTitle(); ?></h2>
+                        <p><?= $announcement->getDescription(); ?></p>
+                        <div class="announcement-info">
+                            <div class="social-section">
+                                <i class="material-symbols-rounded"
+                                   style="font-size: 2em; margin-top: 0.1em;">favorite</i>
+                                <text>
+                                    500
+                                </text>
+                            </div>
+                            <!--                        <text> -->
+                            <? //= $announcement->getPropertyType(); ?><!-- </text>-->
+                            <text> <?= $announcement->getSize(); ?> m2</text>
+                            <text class="price ">
+                                Price = <?= $announcement->getPrice(); ?> zł
                             </text>
                         </div>
-                        <text class="price ">
-                            Price = <?= $announcement->getPrice(); ?> zł
-                        </text>
                     </div>
                 </div>
-            </div>
             <?php endforeach; ?>
 
         </section>
     </main>
 </div>
 </body>
+
+<template id="announcementTemplate">
+    <div id="">
+        <img src="">
+        <div>
+            <h2>title</h2>
+            <p>description</p>
+            <div class="announcement-info">
+                <div class="social-section">
+                    <i class="material-symbols-rounded"
+                       style="font-size: 2em; margin-top: 0.1em;">favorite</i>
+                    <text>
+                        500
+                    </text>
+                </div>
+                <text class="announcementSize"> 20.00 m2</text>
+                <text class="price"> Price = 1000</text>
+            </div>
+        </div>
+    </div>
+</template>
+
 
 </html>

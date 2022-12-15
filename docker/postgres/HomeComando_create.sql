@@ -19,10 +19,10 @@ CREATE TABLE Announcement_Location
 
 CREATE TABLE Announcement
 (
-    ann_Id  SERIAL      NOT NULL,
-    User_Id int         NOT NULL,
-    type    varchar(50) NOT NULL,
-    purpose varchar(50) NOT NULL,
+    ann_Id       SERIAL      NOT NULL,
+    User_Id      int         NOT NULL,
+    propertyType varchar(50) NOT NULL,
+    purpose      varchar(50) NOT NULL,
     CONSTRAINT Announcement_pk PRIMARY KEY (ann_Id)
 );
 
@@ -95,15 +95,15 @@ INSERT INTO User_data (name, surname, email, country, password)
 VALUES ('Piotr', 'Fama', 'piotr.fama@gmail.com', 'Poland', 'piotrFama');
 
 INSERT INTO Announcement
-VALUES (1, 1, 'Single-Family Home', 'ForRent');
+VALUES (1, 1, 'Single-Family Home', 'For Rent');
 INSERT INTO Announcement
-VALUES (2, 2, 'Apartment', 'ForSale');
+VALUES (2, 2, 'Apartment', 'For Sale');
 INSERT INTO Announcement
-VALUES (3, 3, 'Mansion', 'ForSale');
+VALUES (3, 3, 'Mansion', 'For Sale');
 INSERT INTO Announcement
-VALUES (4, 4, 'agricultural land', 'ForSale');
+VALUES (4, 4, 'agricultural land', 'For Sale');
 INSERT INTO Announcement
-VALUES (5, 5, 'Garage', 'ForSale');
+VALUES (5, 5, 'Garage', 'For Sale');
 
 INSERT INTO Announcement_Location
 VALUES (1, 'Sezamowa', '25B', '3', '30-526', 'Poznań');
@@ -118,18 +118,18 @@ VALUES (5, 'Zielona', '29B', '2', '24-532', 'Kraków');
 
 INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
                                   Announcement_ann_Id, Announcement_Location_location_Id)
-VALUES (1, 'Piękny, nowy dom Orłowo/Mały Kack, widok na morze!',
-        'Sprzedam wyjątkowy dom w stanie deweloperskim o powierzchni całkowitej ok. 330m2, położony w Gdyni na granicy dzielnic: Orłowo i Mały Kack, na działce ok. 500m2, super lokalizacja, wszędzie blisko: w niedalekiej odległość od plaży i mola w Orłowie ale także od centrum Gdyni lub Sopotu.',
-        'dom_z_widokiem_na_morze.jpeg',
-        3990000.00,
-        335.00,
+VALUES (1, 'Dom wolnostojący!',
+        'Sprzedam wyjątkowy dom wolnostojący o powierzchni całkowitej ok. 300m2, położony w Krakowie na granicy dzielnic: Krowodrza i Bronowice, na działce ok. 500m2, super lokalizacja, wszędzie blisko',
+        'dom-wolnostojacy.jpg',
+        1290000.00,
+        300.00,
         '+48 500 700 234',
         1, 1);
 
 INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
                                   Announcement_ann_Id, Announcement_Location_location_Id)
-VALUES (2, '2-pokojowy apartament 44m2 + ogródek2-pokojowy apartament 44m2 + ogródek',
-        '2-pokojowy apartament numer C1-0-3 na parterze w budynku C w Inwestycji Lokum Siesta Dewelopera Lokum Deweloper. Trasa pieszo-rowerowa wzdłuż rzeki Wilgi (1 minuta spacerem). Przystanki autobusowe i tramwajowe w promieniu 9 minut spacerem. Żłobek i przedszkole Krasnal (7 minut spacerem)',
+VALUES (2, '2-pokojowy apartament 44m2 + ogródek',
+        '2-pokojowy apartament numer C1-0-3 na parterze w budynku C w Inwestycji Lokum Siesta Dewelopera Lokum Deweloper. Trasa pieszo-rowerowa wzdłuż rzeki Wilgi (1 minuta spacerem).',
         'kawalerka.jpg',
         679000.00,
         44.66,
@@ -155,6 +155,16 @@ VALUES (4, 'Dom szeregowy',
         100.00,
         '+48 553 700 234',
         4, 4);
+
+INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
+                                  Announcement_ann_Id, Announcement_Location_location_Id)
+VALUES (5, 'Piękny, nowy dom Orłowo/Mały Kack, widok na morze!',
+        'Sprzedam wyjątkowy dom w stanie deweloperskim o powierzchni całkowitej ok. 330m2, na działce ok. 500m2, super lokalizacja, w niedalekiej odległość od plaży.',
+        'dom_z_widokiem_na_morze.jpeg',
+        3990000.00,
+        335.00,
+        '+48 500 700 234',
+        5, 5);
 
 -- End of file.
 
