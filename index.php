@@ -10,6 +10,7 @@ Routing::get('register', 'DefaultController');
 Routing::post('login', 'SecurityController');
 Routing::post('addNotice', 'AnnouncementController');
 Routing::post('search', 'AnnouncementController');
+Routing::post('filter', 'AnnouncementController');
 
 //Routing::get('addNotice', 'DefaultController');
 Routing::get('myData', 'DefaultController');

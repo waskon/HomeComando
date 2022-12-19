@@ -15,7 +15,7 @@ class AnnouncementRepository extends Repository
         $stmt->execute();
 
         $announcement = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(!$announcement){
+        if (!$announcement) {
             return null;
         }
 
@@ -77,12 +77,12 @@ class AnnouncementRepository extends Repository
                 $notice['purpose']
             );
         }
-
         return $result;
     }
 
-    public function getAnnouncementByTitle(string $searchString){
-        $searchString = '%'.strtolower($searchString).'%';
+    public function getAnnouncementByTitle(string $searchString)
+    {
+        $searchString = '%' . strtolower($searchString) . '%';
         $stmt = $this->database->connect()->prepare('
         SELECT * FROM Announcement_details WHERE LOWER(title) LIKE :search OR LOWER(description) LIKE :search
         ');
@@ -90,6 +90,47 @@ class AnnouncementRepository extends Repository
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
+    public function getAllFilters(string $purpose, float $size, float $maxPrice)
+    {
+        $purpose = strtolower($purpose);
+        $stmt = $this->database->connect()->prepare('
+        SELECT * FROM announcement a
+            INNER JOIN announcement_details ad on a.ann_id = ad.announcement_ann_id
+        WHERE 
+            LOWER(a.type) LIKE :purpose AND
+            ad.price <= :price AND
+           ad.size >= :size
+        ');
+        $stmt->bindParam(':purpose', $purpose, PDO::PARAM_STR);
+        $stmt->bindParam(':price', $maxPrice, PDO::PARAM_INT);
+        $stmt->bindParam(':size', $size, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getFilteredByPriceAndSize(float $size, float $maxPrice)
+    {
+        $stmt = $this->database->connect()->prepare('
+        SELECT * FROM announcement a
+            INNER JOIN announcement_details ad on a.ann_id = ad.announcement_ann_id
+        WHERE 
+            ad.price <= :price AND
+           ad.size >= :size
+        ');
+        $stmt->bindParam(':price', $maxPrice, PDO::PARAM_INT);
+        $stmt->bindParam(':size', $size, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
+
+
+
+
+
+
+

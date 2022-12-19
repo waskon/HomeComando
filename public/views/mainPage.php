@@ -8,6 +8,8 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <script type="text/javascript" src="./public/js/search.js" defer></script>
+    <script type="text/javascript" src="./public/js/filter.js" defer></script>
+    <script type="text/javascript" src="./public/js/priceFilter.js" defer></script>
     <title>MAIN PAGE</title>
 </head>
 
@@ -45,10 +47,6 @@
                     <input placeholder="search real-estate">
                 </label>
             </div>
-<!--            <button type="submit" class="search-button">-->
-<!--                search-->
-<!--            </button>-->
-<!--            </form>-->
             <div class="add-announcement">
                 <i class="material-symbols-rounded" style="font-size: 1em">add</i>
                 add announcement
@@ -56,25 +54,25 @@
         </header>
         <div class="filters">
             <div class="filter-bar">
-                <div class="property-select">
-                    <select>
-                        <option value="0">Select property:</option>
-                        <option value="1">Home</option>
-                        <option value="2">Apartments</option>
-                        <option value="3">Business premises</option>
-                        <option value="4">Plot</option>
+                <div class="property-select purpose">
+                    <select id="purpose" class="form-control">
+                        <option value="">Select property:</option>
+                        <option value="Home">Home</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Business premises">Business premises</option>
+                        <option value="Plot">Plot</option>
+                        <option value="Garage">Garage</option>
                     </select>
                 </div>
                 <form>
-                    <input class="text-form" placeholder="minimal price">
+                    <label for="maxPrice">
+                        <input id="maxPrice" type="number" min="1" placeholder="maximum price        (zł)">
+                    </label>
+                    <label for="sizeNumb">
+                        <input id="sizeNumb" type="number" min="0.1" placeholder="area of property      (m2)">
+                    </label>
+                    <input id="submit" class="button-38 button-38-filled" type="button" value="Filter">
                 </form>
-                <form>
-                    <input class="text-form" placeholder="maximum price">
-                </form>
-                <form>
-                    <input class="text-form" placeholder="area of property">
-                </form>
-                <button class="button-38 button-38-filled" role="button">Filter</button>
             </div>
         </div>
         <section class="announcements">

@@ -19,10 +19,10 @@ CREATE TABLE Announcement_Location
 
 CREATE TABLE Announcement
 (
-    ann_Id       SERIAL      NOT NULL,
-    User_Id      int         NOT NULL,
-    propertyType varchar(50) NOT NULL,
-    purpose      varchar(50) NOT NULL,
+    ann_Id  SERIAL      NOT NULL,
+    User_Id int         NOT NULL,
+    type    varchar(50) NOT NULL,
+    purpose varchar(50) NOT NULL,
     CONSTRAINT Announcement_pk PRIMARY KEY (ann_Id)
 );
 
@@ -95,15 +95,15 @@ INSERT INTO User_data (name, surname, email, country, password)
 VALUES ('Piotr', 'Fama', 'piotr.fama@gmail.com', 'Poland', 'piotrFama');
 
 INSERT INTO Announcement
-VALUES (1, 1, 'Single-Family Home', 'For Rent');
+VALUES (1, 1, 'Home', 'For Rent');
 INSERT INTO Announcement
 VALUES (2, 2, 'Apartment', 'For Sale');
 INSERT INTO Announcement
-VALUES (3, 3, 'Mansion', 'For Sale');
+VALUES (3, 3, 'Apartment', 'For Sale');
 INSERT INTO Announcement
-VALUES (4, 4, 'agricultural land', 'For Sale');
+VALUES (4, 4, 'Home', 'For Sale');
 INSERT INTO Announcement
-VALUES (5, 5, 'Garage', 'For Sale');
+VALUES (5, 5, 'Home', 'For Sale');
 
 INSERT INTO Announcement_Location
 VALUES (1, 'Sezamowa', '25B', '3', '30-526', 'Poznań');
