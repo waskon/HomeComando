@@ -49,7 +49,7 @@
             </div>
             <div class="add-announcement">
                 <i class="material-symbols-rounded" style="font-size: 1em">add</i>
-                add announcement
+                <a href="/addNotice" style="color: #FFFFFF"> add announcement</a>
             </div>
         </header>
         <div class="filters">

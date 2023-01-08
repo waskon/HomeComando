@@ -16,6 +16,12 @@ Routing::post('filter', 'AnnouncementController');
 Routing::get('myData', 'DefaultController');
 //Routing::get('mainPage', 'DefaultController');
 Routing::get('mainPage', 'AnnouncementController');
-Routing::get('myEstates', 'DefaultController');
+//Routing::get('myEstates', 'DefaultController');
+Routing::get('myEstates', 'AnnouncementController');
+//Routing::get('announcementDetails', 'DefaultController');
+Routing::get('announcementDetails', 'AnnouncementController');
+Routing::get('logout', 'SecurityController');
+
+
 
 Routing::run($path);

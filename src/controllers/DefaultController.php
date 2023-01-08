@@ -31,5 +31,9 @@ class DefaultController extends AppController{
     public function addNotice() {
         $this->render('addNotice');
     }
+
+    public function announcementDetails() {
+        $this->render('announcementDetails');
+    }
     
 }

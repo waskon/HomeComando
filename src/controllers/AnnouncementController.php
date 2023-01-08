@@ -1,6 +1,7 @@
 <?php
 
 require_once 'AppController.php';
+//require_once '../models/User.php';
 require_once __DIR__ . '/../models/Announcement.php';
 require_once __DIR__ . '/../repository/AnnouncementRepository.php';
 
@@ -12,6 +13,7 @@ class AnnouncementController extends AppController
 
     private $messages = [];
     private $announcementRepository;
+//    private $user;
 
     public function __construct()
     {
@@ -25,6 +27,24 @@ class AnnouncementController extends AppController
         $this->render('mainPage', ['announcements' => $announcements]);
     }
 
+    public function myEstates()
+    {
+        session_start();
+        if (!isset($_SESSION) || !array_key_exists("logged_user", $_SESSION)) {
+            // błąd
+        }
+        $user = $_SESSION["logged_user"];
+        $userId = $user->getUserId();
+        $announcements = $this->announcementRepository->getMyNotices($userId);
+        $this->render('myEstates', ['announcements' => $announcements]);
+    }
+
+    public function announcementDetails()
+    {
+        $announcements = $this->announcementRepository->getAnnouncement(1);
+        $this->render('announcementDetails', ['announcements' => $announcements]);
+    }
+
     public function addNotice()
     {
         if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
@@ -35,11 +55,21 @@ class AnnouncementController extends AppController
             );
 
             $announcement = new Announcement($_POST['title'], $_POST['description'], $_FILES['file']['name'],
-                $_POST['price'], $_POST['size'], $_POST['phoneNumber'], $_POST['propertyType'], $_POST['purpose']);
+                $_POST['price'], $_POST['size'], "123456789", "Home", "Sell");
+//                $_POST['phoneNumber'], $_POST['propertyType'], $_POST['purpose']);
+            session_start();
+            if (!isset($_SESSION) || !array_key_exists("logged_user", $_SESSION)) {
+                die("Not logged In");
+            }
+            $user = $_SESSION["logged_user"];
+            $this->announcementRepository->addAnnouncement($announcement, $user);
 
-            return $this->render("myEstates", ["messages" => $this->messages, 'announcement' => $announcement]);
+//            return $this->render("myEstates", ["messages" => $this->messages, 'announcement' => $announcement]);
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/myEstates");
         }
-        $this->render("addNotice", ['messages' => $this->messages]);
+        return $this->render("addNotice", ['messages' => $this->messages]);
+
     }
 
     public function search()

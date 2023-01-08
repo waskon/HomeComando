@@ -31,16 +31,45 @@ class AnnouncementRepository extends Repository
         );
     }
 
-    public function addAnnouncement(Announcement $announcement): void
+    public function addAnnouncement(Announcement $announcement, User $user): void
     {
-        $date = new DateTime();
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO announcement_details (title, description, image, price, size, phone_number)
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO announcement (user_id, type, purpose)
+            VALUES (?, ?, ?) RETURNING ann_id
         ');
 
-        //TODO you should get this value from logged user session
-//        $assignedById = 1;
+        $stmt->execute([
+            $user->getUserId(),
+            $announcement->getPropertyType(),
+            $announcement->getPurpose()
+
+        ]);
+
+        $announcement_id = $stmt->fetchColumn();
+
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO announcement_location (street, house_number, flat_number, postal_code, country)
+            VALUES (?, ?, ?, ?, ?) RETURNING location_id
+        ');
+
+
+        $stmt->execute([
+            "Koniakowa", "25", "2a", "30-567", "Poland"
+//            $street = "rweg",
+//            $house_number= "rweg",
+//            $flat_number= "rweg",
+//            $postal_code= "rweg",
+//            $country= "rweg"
+
+        ]);
+
+        $location_id = $stmt->fetchColumn();
+
+        $date = new DateTime();
+        $stmt = $this->database->connect()->prepare('
+            INSERT INTO announcement_details (title, description, image, price, size, phone_number, announcement_ann_id, announcement_location_location_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        ');
 
         $stmt->execute([
             $announcement->getTitle(),
@@ -49,12 +78,12 @@ class AnnouncementRepository extends Repository
             $announcement->getPrice(),
             $announcement->getSize(),
             $announcement->getPhoneNumber(),
-            $announcement->getPropertyType(),
-            $announcement->getPurpose()
+            $announcement_id,
+            $location_id
+//            $announcement->getPurpose(),
+//            $date->format('Y-m-d'),
+//            $assignedById,
 
-
-//            $announcement->format('Y-m-d'),
-//            $assignedById
         ]);
     }
 
@@ -62,6 +91,35 @@ class AnnouncementRepository extends Repository
     {
         $result = [];
         $stmt = $this->database->connect()->prepare('SELECT * FROM Announcement_details');
+        $stmt->execute();
+        $notices = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($notices as $notice) {
+            $result[] = new Announcement(
+                $notice['title'],
+                $notice['description'],
+                $notice['image'],
+                $notice['price'],
+                $notice['size'],
+                $notice['phoneNumber'],
+                $notice['propertyType'],
+                $notice['purpose']
+            );
+        }
+        return $result;
+    }
+
+    public function getMyNotices($userId): array
+    {
+        $result = [];
+        $stmt = $this->database->connect()->prepare('
+        SELECT  ann.user_id, title, description, image, price, size, type, purpose 
+            From announcement ann 
+            INNER JOIN announcement_details ad on ann.ann_id = ad.announcement_ann_id
+        WHERE
+            ann.user_id = :id
+        ');
+        $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
         $stmt->execute();
         $notices = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

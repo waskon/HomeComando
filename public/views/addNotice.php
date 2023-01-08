@@ -65,6 +65,25 @@
                         <text>m2</text>
                     </div>
                     <input type="file" name="file" /><br />
+                    <textarea name="phone-number" rows=1 placeholder="phone number"></textarea>
+                    <div class="property-select type">
+                        <select id="type" class="form-control">
+                            <option value="">Select property type:</option>
+                            <option value="Home">Home</option>
+                            <option value="Apartment">Apartment</option>
+                            <option value="Business premises">Business premises</option>
+                            <option value="Plot">Plot</option>
+                            <option value="Garage">Garage</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="purpose type">
+                        <select id="type" class="form-control">
+                            <option value="">Select purpose:</option>
+                            <option value="Sell">Sell</option>
+                            <option value="Rent">Rent</option>
+                        </select>
+                    </div>
                     <button type="submit">send</button>
                 </form>
             </section>
