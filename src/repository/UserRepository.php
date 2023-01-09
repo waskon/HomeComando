@@ -16,20 +16,19 @@ class UserRepository extends Repository
             return null;
         }
         return new User(
-            $user['user_id'],
-            $user['email'],
-            $user['password'],
             $user['name'],
             $user['surname'],
-            $user['country']
+            $user['email'],
+            $user['country'],
+            $user['password']
         );
     }
 
     public function addUser(User $user)
     {
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO User_data (name, surname, email, country, password, user_id)
-            VALUES (?, ?, ?, ?, ?, ?)
+            INSERT INTO user_data (name, surname, email, country, password)
+            VALUES (?, ?, ?, ?, ?)
         ');
 
         $stmt->execute([
@@ -37,15 +36,15 @@ class UserRepository extends Repository
             $user->getSurname(),
             $user->getEmail(),
             $user->getCountry(),
-            $user->getPassword(),
-            $this->getUserId($user)
+            $user->getPassword()
+//            $this->getUserId($user)
         ]);
     }
 
     public function getUserId(User $user): int
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.User_data WHERE name = :name AND surname = :surname AND country = :country
+            SELECT * FROM public.user_data WHERE name = :name AND surname = :surname AND country = :country
         ');
 //        $stmt->bindParam(':name', $user->getName(), PDO::PARAM_STR);
 //        $stmt->bindParam(':surname', $user->getSurname(), PDO::PARAM_STR);

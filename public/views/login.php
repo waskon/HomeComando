@@ -18,34 +18,34 @@
                 <img style="width: 10rem;" src="public/img/logo-czarne.png" alt="">
             </div>
             <form class="login" action="login" method="POST">
-            <div class="credential-wrapper flex-column">
-                <div class="login-label flex-column">
-
-                        <div class="messages">
+                <div class="credential-wrapper flex-column">
+                    <div class="login-label flex-column">
+                        <div class="messages" style="color: red">
                             <?php
-                            if (isset($messages)) {
-                                foreach ($messages as $message) {
-                                    echo $message;
+                                if (isset($messages)) {
+                                    foreach ($messages as $message) {
+                                        echo $message;
+                                    }
                                 }
-                            }
-                            ?>
+                                ?>
                         </div>
                         <span class="login-label"> Login </span>
                         <input name="email" class="text-form" type="text" placeholder="email@email.com">
+                    </div>
+                    <div class="registry-label flex-column">
+                        <span class="login-label"> Password </span>
+                        <input name="password" type="password" class="text-form" placeholder="password">
+                    </div>
                 </div>
-                <div class="registry-label flex-column">
-                    <span class="login-label"> Password </span>
-                    <input name="password" type="password" class="text-form" placeholder="password">
+                <div class="buttons-wrapper flex-row flex-center">
+                    <button class="button-38" role="button" type="submit">Log in</button>
                 </div>
-            </div>
-            <div class="buttons-wrapper flex-row flex-center">
-                <button class="button-38" role="button" type="submit">Log in</button>
-
-                <button class="button-38 button-38-filled" role="button">Sign in</button>
-
-            </div>
             </form>
-
+            <div class="register-button">
+                <a href="/register">
+                    <button class="button-38 button-38-filled" role="button">Sign in</button>
+                </a>
+            </div>
         </div>
     </div>
 </div>

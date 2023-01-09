@@ -1,18 +1,18 @@
 <?php
 
 class User
-//    extends Address
 {
-    private $user_id;
-    private $email;
-    private $password;
+//    private $user_id;
     private $name;
     private $surname;
+    private $email;
+    private $password;
     private $country;
 
-    public function __construct(string $user_id, string $email, string $password, string $name, string $surname, string $country)
+    public function __construct(string $name, string $surname, string $email,
+                                string $country, string $password)
     {
-        $this->user_id = $user_id;
+//        $this->user_id = $user_id;
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
@@ -20,15 +20,15 @@ class User
         $this->country = $country;
     }
 
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId($user_id): void
-    {
-        $this->user_id = $user_id;
-    }
+//    public function getUserId()
+//    {
+//        return $this->user_id;
+//    }
+//
+//    public function setUserId($user_id): void
+//    {
+//        $this->user_id = $user_id;
+//    }
 
     public function getEmail(): string
     {

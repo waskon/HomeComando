@@ -8,14 +8,6 @@ class DefaultController extends AppController{
         $this->render('login');
     }
 
-    public function register() {
-        $this->render('register');
-    }
-
-//    public function mainPage() {
-//        $this->render('mainPage');
-//    }
-
     public function myData() {
         $this->render('myData');
     }
