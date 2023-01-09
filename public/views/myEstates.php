@@ -37,7 +37,7 @@
             </li>
             <li>
                 <i class="material-symbols-rounded" style="font-size: 1.5em">logout </i>
-                <a href="/login" class="button button-label">Log out</a>
+                <a href="/logout" class="button button-label">Log out</a>
             </li>
         </ul>
     </nav>

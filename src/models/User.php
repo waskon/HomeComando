@@ -1,6 +1,7 @@
 <?php
 
 class User
+//    extends Address
 {
     private $user_id;
     private $email;

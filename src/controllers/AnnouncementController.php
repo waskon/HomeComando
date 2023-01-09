@@ -1,7 +1,7 @@
 <?php
 
 require_once 'AppController.php';
-//require_once '../models/User.php';
+require_once __DIR__ . '/../models/Address.php';
 require_once __DIR__ . '/../models/Announcement.php';
 require_once __DIR__ . '/../repository/AnnouncementRepository.php';
 
@@ -41,7 +41,8 @@ class AnnouncementController extends AppController
 
     public function announcementDetails()
     {
-        $announcements = $this->announcementRepository->getAnnouncement(1);
+        $id =23;
+        $announcements = $this->announcementRepository->getAnnouncement($id);
         $this->render('announcementDetails', ['announcements' => $announcements]);
     }
 
@@ -55,14 +56,17 @@ class AnnouncementController extends AppController
             );
 
             $announcement = new Announcement($_POST['title'], $_POST['description'], $_FILES['file']['name'],
-                $_POST['price'], $_POST['size'], "123456789", "Home", "Sell");
-//                $_POST['phoneNumber'], $_POST['propertyType'], $_POST['purpose']);
+                $_POST['price'], $_POST['size'],
+//                "123456789", "Home", "Sell");
+                $_POST['phoneNumber'], $_POST['propertyType'], $_POST['purpose']);
+            $propertyAdress = new Address($_POST['street'], $_POST['house_number'], $_POST['flat_number'],
+                $_POST['postal_code'], $_POST['country']);
             session_start();
             if (!isset($_SESSION) || !array_key_exists("logged_user", $_SESSION)) {
                 die("Not logged In");
             }
             $user = $_SESSION["logged_user"];
-            $this->announcementRepository->addAnnouncement($announcement, $user);
+            $this->announcementRepository->addAnnouncement($announcement, $user, $propertyAdress);
 
 //            return $this->render("myEstates", ["messages" => $this->messages, 'announcement' => $announcement]);
             $url = "http://$_SERVER[HTTP_HOST]";

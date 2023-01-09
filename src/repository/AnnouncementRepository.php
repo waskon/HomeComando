@@ -31,7 +31,8 @@ class AnnouncementRepository extends Repository
         );
     }
 
-    public function addAnnouncement(Announcement $announcement, User $user): void
+//    public function addAnnouncement(Announcement $announcement, User $user): void
+    public function addAnnouncement(Announcement $announcement, User $user, Address $propertyAddress): void
     {
         $stmt = $this->database->connect()->prepare('
             INSERT INTO announcement (user_id, type, purpose)
@@ -40,6 +41,7 @@ class AnnouncementRepository extends Repository
 
         $stmt->execute([
             $user->getUserId(),
+//            "Home","Sell"
             $announcement->getPropertyType(),
             $announcement->getPurpose()
 
@@ -54,13 +56,12 @@ class AnnouncementRepository extends Repository
 
 
         $stmt->execute([
-            "Koniakowa", "25", "2a", "30-567", "Poland"
-//            $street = "rweg",
-//            $house_number= "rweg",
-//            $flat_number= "rweg",
-//            $postal_code= "rweg",
-//            $country= "rweg"
-
+//            "Koniakowa", "25", "2a", "30-567", "Poland"
+            $propertyAddress->getStreet(),
+            $propertyAddress->getHouseNumber(),
+            $propertyAddress->getFlatNumber(),
+            $propertyAddress->getPostalCode(),
+            $propertyAddress->getCountry()
         ]);
 
         $location_id = $stmt->fetchColumn();
@@ -76,11 +77,12 @@ class AnnouncementRepository extends Repository
             $announcement->getDescription(),
             $announcement->getImage(),
             $announcement->getPrice(),
-            $announcement->getSize(),
-            $announcement->getPhoneNumber(),
+            $announcement->getSize(),"123456789",
+//            $announcement->getPhoneNumber(),
             $announcement_id,
             $location_id
 //            $announcement->getPurpose(),
+//            $announcement->getPropertyType()
 //            $date->format('Y-m-d'),
 //            $assignedById,
 
