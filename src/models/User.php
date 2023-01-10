@@ -2,17 +2,17 @@
 
 class User
 {
-//    private $user_id;
+    private $user_id;
     private $name;
     private $surname;
     private $email;
     private $password;
     private $country;
 
-    public function __construct(string $name, string $surname, string $email,
+    public function __construct(int $user_id, string $name, string $surname, string $email,
                                 string $country, string $password)
     {
-//        $this->user_id = $user_id;
+        $this->user_id = $user_id;
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
@@ -20,15 +20,15 @@ class User
         $this->country = $country;
     }
 
-//    public function getUserId()
-//    {
-//        return $this->user_id;
-//    }
-//
-//    public function setUserId($user_id): void
-//    {
-//        $this->user_id = $user_id;
-//    }
+    public function getUserId(): int
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId($user_id): void
+    {
+        $this->user_id = $user_id;
+    }
 
     public function getEmail(): string
     {

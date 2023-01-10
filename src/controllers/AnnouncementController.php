@@ -13,7 +13,6 @@ class AnnouncementController extends AppController
 
     private $messages = [];
     private $announcementRepository;
-//    private $user;
 
     public function __construct()
     {
@@ -31,7 +30,8 @@ class AnnouncementController extends AppController
     {
         session_start();
         if (!isset($_SESSION) || !array_key_exists("logged_user", $_SESSION)) {
-            // błąd
+            error_log('Session doesn\'t exist!');
+//            die();
         }
         $user = $_SESSION["logged_user"];
         $userId = $user->getUserId();
@@ -41,8 +41,8 @@ class AnnouncementController extends AppController
 
     public function announcementDetails()
     {
-        $id =23;
-        $announcements = $this->announcementRepository->getAnnouncement($id);
+        $announcementId = 23;
+        $announcements = $this->announcementRepository->getAnnouncement($announcementId);
         $this->render('announcementDetails', ['announcements' => $announcements]);
     }
 

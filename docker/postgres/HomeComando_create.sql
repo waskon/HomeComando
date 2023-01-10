@@ -13,7 +13,7 @@ CREATE TABLE Announcement_Location
     house_number varchar(10)  NOT NULL,
     flat_number  varchar(10)  NULL,
     postal_code  varchar(6)   NOT NULL,
-    country      varchar(200) NOT NULL,
+    city      varchar(200) NOT NULL,
     CONSTRAINT Announcement_Location_pk PRIMARY KEY (location_Id)
 );
 
@@ -94,31 +94,31 @@ VALUES ('John', 'Snow', 'john.snow@gmail.com', 'England', 'johnSnow');
 INSERT INTO User_data (name, surname, email, country, password)
 VALUES ('Piotr', 'Fama', 'piotr.fama@gmail.com', 'Poland', 'piotrFama');
 
-INSERT INTO Announcement
-VALUES (1, 1, 'Home', 'For Rent');
-INSERT INTO Announcement
-VALUES (2, 2, 'Apartment', 'For Sale');
-INSERT INTO Announcement
-VALUES (3, 3, 'Apartment', 'For Sale');
-INSERT INTO Announcement
-VALUES (4, 4, 'Home', 'For Sale');
-INSERT INTO Announcement
-VALUES (5, 5, 'Home', 'For Sale');
+INSERT INTO Announcement (user_id, type, purpose)
+VALUES (1, 'Home', 'For Rent');
+INSERT INTO Announcement (user_id, type, purpose)
+VALUES (2, 'Apartment', 'For Sale');
+INSERT INTO Announcement (user_id, type, purpose)
+VALUES (3, 'Apartment', 'For Sale');
+INSERT INTO Announcement (user_id, type, purpose)
+VALUES (4, 'Home', 'For Sale');
+INSERT INTO Announcement (user_id, type, purpose)
+VALUES (5, 'Home', 'For Sale');
 
-INSERT INTO Announcement_Location
-VALUES (1, 'Sezamowa', '25B', '3', '30-526', 'Poznań');
-INSERT INTO Announcement_Location
-VALUES (2, 'Ogrodowa', '2A', '5', '24-532', 'Kraków');
-INSERT INTO Announcement_Location
-VALUES (3, 'Goździkowa', '23A', '1', '24-532', 'Kraków');
-INSERT INTO Announcement_Location
-VALUES (4, 'Zbożowa', '26B', '7', '24-532', 'Kraków');
-INSERT INTO Announcement_Location
-VALUES (5, 'Zielona', '29B', '2', '24-532', 'Kraków');
+INSERT INTO Announcement_Location (street, house_number, flat_number, postal_code, city)
+VALUES ('Sezamowa', '25B', '3', '30-526', 'Poznań');
+INSERT INTO Announcement_Location (street, house_number, flat_number, postal_code, city)
+VALUES ('Ogrodowa', '2A', '5', '24-532', 'Kraków');
+INSERT INTO Announcement_Location (street, house_number, flat_number, postal_code, city)
+VALUES ('Goździkowa', '23A', '1', '24-532', 'Kraków');
+INSERT INTO Announcement_Location (street, house_number, flat_number, postal_code, city)
+VALUES ('Zbożowa', '26B', '7', '24-532', 'Kraków');
+INSERT INTO Announcement_Location (street, house_number, flat_number, postal_code, city)
+VALUES ('Zielona', '29B', '2', '24-532', 'Kraków');
 
-INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
+INSERT INTO Announcement_Details (title, description, image, price, size, phone_number,
                                   Announcement_ann_Id, Announcement_Location_location_Id)
-VALUES (1, 'Dom wolnostojący!',
+VALUES ('Dom wolnostojący!',
         'Sprzedam wyjątkowy dom wolnostojący o powierzchni całkowitej ok. 300m2, położony w Krakowie na granicy dzielnic: Krowodrza i Bronowice, na działce ok. 500m2, super lokalizacja, wszędzie blisko',
         'dom-wolnostojacy.jpg',
         1290000.00,
@@ -126,9 +126,9 @@ VALUES (1, 'Dom wolnostojący!',
         '+48 500 700 234',
         1, 1);
 
-INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
+INSERT INTO Announcement_Details (title, description, image, price, size, phone_number,
                                   Announcement_ann_Id, Announcement_Location_location_Id)
-VALUES (2, '2-pokojowy apartament 44m2 + ogródek',
+VALUES ('2-pokojowy apartament 44m2 + ogródek',
         '2-pokojowy apartament numer C1-0-3 na parterze w budynku C w Inwestycji Lokum Siesta Dewelopera Lokum Deweloper. Trasa pieszo-rowerowa wzdłuż rzeki Wilgi (1 minuta spacerem).',
         'kawalerka.jpg',
         679000.00,
@@ -136,9 +136,9 @@ VALUES (2, '2-pokojowy apartament 44m2 + ogródek',
         '+48 525 541 275',
         2, 2);
 
-INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
+INSERT INTO Announcement_Details (title, description, image, price, size, phone_number,
                                   Announcement_ann_Id, Announcement_Location_location_Id)
-VALUES (3, 'Mieszkanie w centrum',
+VALUES ('Mieszkanie w centrum',
         'Mieszkanie w centrum. Posiada 2 pokoje, lazienke, kuchnie oraz aneks jadalny.',
         'kawalerka2.jpg',
         600000.00,
@@ -146,9 +146,9 @@ VALUES (3, 'Mieszkanie w centrum',
         '+48 759 262 234',
         3, 3);
 
-INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
+INSERT INTO Announcement_Details (title, description, image, price, size, phone_number,
                                   Announcement_ann_Id, Announcement_Location_location_Id)
-VALUES (4, 'Dom szeregowy',
+VALUES ('Dom szeregowy',
         'Dom szeregowy, w niedalekiej odleglosci od centrum. Dom posiada 2 pokoje, lazienke, kuchnie oraz aneks jadalny.',
         'dom-szeregowy.jpg',
         700000.00,
@@ -156,9 +156,9 @@ VALUES (4, 'Dom szeregowy',
         '+48 553 700 234',
         4, 4);
 
-INSERT INTO Announcement_Details (details_Id, title, description, image, price, size, phone_number,
+INSERT INTO Announcement_Details (title, description, image, price, size, phone_number,
                                   Announcement_ann_Id, Announcement_Location_location_Id)
-VALUES (5, 'Piękny, nowy dom Orłowo/Mały Kack, widok na morze!',
+VALUES ('Piękny, nowy dom Orłowo/Mały Kack, widok na morze!',
         'Sprzedam wyjątkowy dom w stanie deweloperskim o powierzchni całkowitej ok. 330m2, na działce ok. 500m2, super lokalizacja, w niedalekiej odległość od plaży.',
         'dom_z_widokiem_na_morze.jpeg',
         3990000.00,

@@ -6,9 +6,9 @@ require_once __DIR__ . '/../repository/UserRepository.php';
 
 class SecurityController extends AppController
 {
-//    private $userRepository;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->userRepository = new UserRepository();
     }
@@ -34,7 +34,6 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
         $hashedPassword = md5(md5($password));
-//            password_hash($password, PASSWORD_BCRYPT, array('cost' => 10));
 
         if ($user->getPassword() !== $hashedPassword) {
             return $this->render('login', ['messages' => ['Wrong password']]);
@@ -45,10 +44,9 @@ class SecurityController extends AppController
         header("Location: {$url}/mainPage");
     }
 
-    public function register() {
-
+    public function register()
+    {
         $userRepository = new UserRepository();
-
         if (!$this->isPost()) {
             return $this->render('register');
         }
@@ -62,11 +60,11 @@ class SecurityController extends AppController
 
         $user = $userRepository->getUser($email);
 
-        if($name == null  || $surname == null || $country == null || $email == null || $password == null) {
+        if ($name == null || $surname == null || $country == null || $email == null || $password == null) {
             return $this->render('register', ['messages' => ['The form has not been completed!']]);
         }
 
-        if($user) {
+        if ($user) {
             return $this->render('register', ['messages' => ['User with this email already exists!']]);
         }
 
@@ -75,12 +73,8 @@ class SecurityController extends AppController
         }
 
         $hashedPassword = md5(md5($password));
-        $user_id =20; //TODO ogarnąć id
-        $newuser = new User($name, $surname, $email, $country, $hashedPassword);
-
-        var_dump($newuser);
-        $this->userRepository->addUser($newuser);
-
+        $newUser = new User(0, $name, $surname, $email, $country, $hashedPassword);
+        $this->userRepository->addUser($newUser);
         return $this->render('login', ['messages' => ['Your account has been created!']]);
     }
 

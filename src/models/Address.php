@@ -1,21 +1,20 @@
 <?php
 
 class Address
-//    extends User
 {
     private $street;
     private $houseNumber;
     private $flatNumber;
     private $postalCode;
-    private $country;
+    private $city;
 
-    public function __construct($street, $houseNumber, $flatNumber, $postalCode, $country)
+    public function __construct($street, $houseNumber, $flatNumber, $postalCode, $city)
     {
         $this->street = $street;
         $this->houseNumber = $houseNumber;
         $this->flatNumber = $flatNumber;
         $this->postalCode = $postalCode;
-        $this->country = $country;
+        $this->city = $city;
     }
 
     public function getStreet()
@@ -58,14 +57,14 @@ class Address
         $this->postalCode = $postalCode;
     }
 
-    public function getCountry()
+    public function getCity()
     {
-        return $this->country;
+        return $this->city;
     }
 
-    public function setCountry($country): void
+    public function setCity($city): void
     {
-        $this->country = $country;
+        $this->city = $city;
     }
 
 }
