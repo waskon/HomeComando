@@ -58,9 +58,13 @@ class SecurityController extends AppController
         $email = $_POST['email'];
         $country = $_POST['country'];
         $password = $_POST['password'];
-        $confirmPassword = $_POST['repeatPassword'];
+        $confirmPassword = $_POST['confirmedPassword'];
 
         $user = $userRepository->getUser($email);
+
+        if($name == null  || $surname == null || $country == null || $email == null || $password == null) {
+            return $this->render('register', ['messages' => ['The form has not been completed!']]);
+        }
 
         if($user) {
             return $this->render('register', ['messages' => ['User with this email already exists!']]);
@@ -70,7 +74,6 @@ class SecurityController extends AppController
             return $this->render('register', ['messages' => ['Passwords don\'t  match!']]);
         }
 
-//        $hashedPassword = password_hash($password, PASSWORD_BCRYPT, array('cost' => 10));
         $hashedPassword = md5(md5($password));
         $user_id =20; //TODO ogarnąć id
         $newuser = new User($name, $surname, $email, $country, $hashedPassword);

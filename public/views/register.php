@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="public/css/register.css"/>
     <link rel="stylesheet" type="text/css" href="public/css/main-styles.css"/>
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
     <title>REGISTRY</title>
 </head>
 
@@ -45,7 +46,7 @@
                     </div>
                     <div class="registry-label">
                         <span class="login-label"> Repeat password </span>
-                        <input name="repeatPassword" class="text-form" type="text">
+                        <input name="confirmedPassword" class="text-form" type="text">
                     </div>
                 </div>
 
@@ -61,10 +62,8 @@
                     <button class="button-38 button-38-filled" role="button" type="submit">Sign in</button>
                 </div>
         </form>
-        <div class="back-button">
-            <a href="/login">
-                <button class="button-38" role="button">Back to log in page</button>
-            </a>
+        <div class="back-button flex-column flex-center">
+            <a href="/login" class="button-38">Back to log in page</a>
         </div>
     </div>
 </div>

@@ -48,11 +48,22 @@ body {
     gap: 1rem;
 }
 
+.back-button{
+    margin-top: 1em;
+}
+
 .login-label {
     font-size: 1.1rem;
     color: rgb(99, 98, 98);
     letter-spacing: 1px;
     margin-bottom: 0.2rem;
+}
+
+.no-valid{
+    border: 3px solid red;
+    border-radius: 1em;
+    box-shadow: 0 0 0.5em red;
+    outline: none;
 }
 
 @media (max-width: 900px) {
