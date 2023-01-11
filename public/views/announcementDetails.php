@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="public/css/navigation.css">
     <link rel="stylesheet" type="text/css" href="public/css/myData.css">
+    <link rel="stylesheet" type="text/css" href="public/css/main-page.css">
+    <link rel="stylesheet" type="text/css" href="public/css/main-styles.css">
+    <link rel="stylesheet" type="text/css" href="public/css/navigation.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <title>ANNOUNCEMENT DETAILS</title>
@@ -39,10 +42,12 @@
     <main>
         <header class="wrapper">
             <h1 class="personal-data-sign">
-                Title
-                <!--                --><?php
-                //                $announcement->getTitle();
-                //                ?>
+<!--                Title-->
+                <?php
+                if (isset($announcement)) {
+                    echo  $announcement->getTitle().'<br>';
+                }
+                ?>
             </h1>
         </header>
         <section class="announcement">
@@ -53,8 +58,9 @@
                                 Description:
                             </span>
                     <span class="head-label">
-                                This is description of property
-                            </span>
+<!--                                This is description of property-->
+                        <?php echo $announcement->getDescription().'<br>'; ?>
+                    </span>
                 </div>
                 <div class="announcement-info">
                     <div class="left-tables">
@@ -63,7 +69,9 @@
                                 Price
                             </span>
                             <span class="head-label">
-                                100000 zł
+<!--                                100000 zł-->
+                                <?php echo $announcement->getPrice(); ?>
+                                zł
                             </span>
                         </div>
                         <div class="group-column">
@@ -71,7 +79,8 @@
                                 Number
                             </span>
                             <span class="head-label">
-                                +48 987 654 321
+<!--                                +48 987 654 321-->
+                                <?php echo $announcement->getPhoneNumber().'<br>'; ?>
                             </span>
                         </div>
                         <div class="group-column">
@@ -79,7 +88,8 @@
                                 Property Type
                             </span>
                             <span class="head-label">
-                                House
+<!--                                House-->
+                                <?php echo $announcement->getPropertyType().'<br>'; ?>
                             </span>
                         </div>
                         <div class="group-column">
@@ -87,7 +97,8 @@
                                 Purpose
                             </span>
                             <span class="head-label">
-                                SELL
+<!--                                SELL-->
+                                <?php echo $announcement->getPurpose().'<br>'; ?>
                             </span>
                         </div>
                     </div>
@@ -97,7 +108,12 @@
                                 Street
                             </span>
                             <span class="head-label">
-                                Lea
+<!--                                Lea-->
+                                <?php
+                                if (isset($address)) {
+                                    echo  $address->getStreet().'<br>';
+                                }
+                                ?>
                             </span>
                         </div>
                         <div class="group-column">
@@ -105,7 +121,8 @@
                                 House Number
                             </span>
                             <span class="head-label">
-                                25
+<!--                                25-->
+                                <?php echo  $address->getHouseNumber().'<br>'; ?>
                             </span>
                         </div>
                         <div class="group-column">
@@ -113,7 +130,8 @@
                                 Flat Number
                             </span>
                             <span class="head-label">
-                                3A
+<!--                                3A-->
+                                <?php echo  $address->getFlatNumber().'<br>'; ?>
                             </span>
                         </div>
                         <div class="group-column">
@@ -121,15 +139,17 @@
                                 Postal Code
                             </span>
                             <span class="head-label">
-                                30-456
+<!--                                30-456-->
+                                <?php echo  $address->getPostalCode().'<br>'; ?>
                             </span>
                         </div>
                         <div class="group-column">
                             <span class="head">
-                                Country
+                                City
                             </span>
                             <span class="head-label">
-                                Poland
+<!--                                Krakow-->
+                                <?php echo  $address->getCity().'<br>'; ?>
                             </span>
                         </div>
                     </div>
@@ -177,7 +197,7 @@
 
     .content {
         display: flex;
-        flex-direction: row ;
+        flex-direction: row;
         /*width: 100%;*/
         /*height: 100%;*/
         background-color: #C1C1C1;
@@ -193,6 +213,7 @@
         text-align: left;
         font: normal normal bold 30px/40px Arial;
     }
+
     .head-label {
         margin-left: 5em;
         margin-right: 5em;

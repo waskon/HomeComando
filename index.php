@@ -19,7 +19,7 @@ Routing::get('mainPage', 'AnnouncementController');
 //Routing::get('myEstates', 'DefaultController');
 Routing::get('myEstates', 'AnnouncementController');
 //Routing::get('announcementDetails', 'DefaultController');
-Routing::get('announcementDetails', 'AnnouncementController');
+Routing::get('announcementDetails', 'AnnouncementController');  //TODO
 Routing::get('logout', 'SecurityController');
 
 

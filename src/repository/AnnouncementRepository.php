@@ -9,7 +9,11 @@ class AnnouncementRepository extends Repository
     public function getAnnouncement(int $id): ?Announcement
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM public.Announcement_details WHERE details_id = :id
+            SELECT * FROM public.Announcement_details ad
+                  INNER JOIN announcement a on a.ann_id = ad.announcement_ann_id
+                  INNER JOIN announcement_location al on al.location_id = ad.announcement_location_location_id
+              WHERE details_id = :id
+            
         ');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -25,9 +29,10 @@ class AnnouncementRepository extends Repository
             $announcement['image'],
             $announcement['price'],
             $announcement['size'],
-            $announcement['number'],
-            $announcement['propertyType'],
-            $announcement['purpose']
+            $announcement['phone_number'],
+            $announcement['type'],
+            $announcement['purpose'],
+            $announcement['announcement_location_location_id']
         );
     }
 
@@ -102,7 +107,8 @@ class AnnouncementRepository extends Repository
                 $notice['size'],
                 $notice['phoneNumber'],
                 $notice['propertyType'],
-                $notice['purpose']
+                $notice['purpose'],
+                $notice['locationId']
             );
         }
         return $result;
@@ -112,7 +118,7 @@ class AnnouncementRepository extends Repository
     {
         $result = [];
         $stmt = $this->database->connect()->prepare('
-        SELECT  ann.user_id, title, description, image, price, size, type, purpose 
+        SELECT  ann.user_id, title, description, image, price, size, type, purpose, announcement_location_location_id 
             From announcement ann 
             INNER JOIN announcement_details ad on ann.ann_id = ad.announcement_ann_id
         WHERE
@@ -131,7 +137,8 @@ class AnnouncementRepository extends Repository
                 $notice['size'],
                 $notice['phoneNumber'],
                 $notice['propertyType'],
-                $notice['purpose']
+                $notice['purpose'],
+                $notice['locationId']
             );
         }
         return $result;

@@ -2,6 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__ . '/../models/Address.php';
+require_once __DIR__ . '/../repository/AddressRepository.php';
 require_once __DIR__ . '/../models/Announcement.php';
 require_once __DIR__ . '/../repository/AnnouncementRepository.php';
 
@@ -13,11 +14,13 @@ class AnnouncementController extends AppController
 
     private $messages = [];
     private $announcementRepository;
+    private $addressRepository;
 
     public function __construct()
     {
         parent::__construct();
         $this->announcementRepository = new AnnouncementRepository();
+        $this->addressRepository = new AddressRepository();
     }
 
     public function mainPage()
@@ -39,11 +42,11 @@ class AnnouncementController extends AppController
         $this->render('myEstates', ['announcements' => $announcements]);
     }
 
-    public function announcementDetails()
+    public function announcementDetails($announcementId)
     {
-        $announcementId = 23;
-        $announcements = $this->announcementRepository->getAnnouncement($announcementId);
-        $this->render('announcementDetails', ['announcements' => $announcements]);
+        $announcement = $this->announcementRepository->getAnnouncement((int)$announcementId);
+        $address = $this->addressRepository->getAddressById($announcement->getLocationId());
+        $this->render('announcementDetails', ['announcement' => $announcement, 'address' => $address]);
     }
 
     public function addNotice()
