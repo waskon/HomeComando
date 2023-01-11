@@ -24,6 +24,7 @@ class AnnouncementRepository extends Repository
         }
 
         return new Announcement(
+            $id,
             $announcement['title'],
             $announcement['description'],
             $announcement['image'],
@@ -100,6 +101,7 @@ class AnnouncementRepository extends Repository
 
         foreach ($notices as $notice) {
             $result[] = new Announcement(
+                $notice['announcement_ann_id'],
                 $notice['title'],
                 $notice['description'],
                 $notice['image'],
@@ -130,6 +132,7 @@ class AnnouncementRepository extends Repository
 
         foreach ($notices as $notice) {
             $result[] = new Announcement(
+                $notice['announcement_ann_id'],
                 $notice['title'],
                 $notice['description'],
                 $notice['image'],

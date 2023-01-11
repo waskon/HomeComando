@@ -58,10 +58,10 @@ class AnnouncementController extends AppController
                 dirname(__DIR__) . self::UPLOAD_DIRECTORY . $_FILES['file']['name']
             );
 
-            $announcement = new Announcement($_POST['title'], $_POST['description'], $_FILES['file']['name'],
-                $_POST['price'], $_POST['size'],
-//                "123456789", "Home", "Sell");
-                $_POST['phoneNumber'], $_POST['propertyType'], $_POST['purpose']);
+            $announcement = new Announcement(0, $_POST['title'], $_POST['description'],
+                $_FILES['file']['name'], $_POST['price'], $_POST['size'], $_POST['phoneNumber'],
+                $_POST['propertyType'], $_POST['purpose'], 0);
+
             $propertyAdress = new Address($_POST['street'], $_POST['house_number'], $_POST['flat_number'],
                 $_POST['postal_code'], $_POST['country']);
             session_start();

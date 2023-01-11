@@ -2,6 +2,7 @@
 
 class Announcement
 {
+    private $announcementId;
     private $title;
     private $description;
     private $image;
@@ -12,8 +13,9 @@ class Announcement
     private $purpose;
     private $locationId;
 
-    public function __construct($title, $description, $image, $price, $size, $phoneNumber, $propertyType, $purpose, $locationId)
+    public function __construct($announcementId,$title, $description, $image, $price, $size, $phoneNumber, $propertyType, $purpose, $locationId)
     {
+        $this->announcementId = $announcementId;
         $this->title = $title;
         $this->description = $description;
         $this->image = $image;
@@ -23,6 +25,16 @@ class Announcement
         $this->propertyType = $propertyType;
         $this->purpose = $purpose;
         $this->locationId = $locationId;
+    }
+
+    public function getAnnouncementId() : int
+    {
+        return $this->announcementId;
+    }
+
+    public function setAnnouncementId(int $announcementId)
+    {
+        $this->announcementId = $announcementId;
     }
 
     public function getTitle() : string

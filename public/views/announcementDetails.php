@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="public/css/navigation.css">
-    <link rel="stylesheet" type="text/css" href="public/css/myData.css">
-    <link rel="stylesheet" type="text/css" href="public/css/main-page.css">
-    <link rel="stylesheet" type="text/css" href="public/css/main-styles.css">
-    <link rel="stylesheet" type="text/css" href="public/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/myData.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/main-page.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/main-styles.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <title>ANNOUNCEMENT DETAILS</title>
@@ -15,7 +14,7 @@
 <body>
 <div class="base-container">
     <nav>
-        <img src="public/img/logo-czarne.png">
+        <img src="../public/img/logo-czarne.png">
         <ul>
             <li>
                 <i class="material-symbols-rounded" style="font-size: 1.5em">home</i>
@@ -52,7 +51,7 @@
         </header>
         <section class="announcement">
             <div class="content">
-                <img src="public/uploads/dom-wolnostojacy.jpg">
+                <img src="../public/uploads/<?= $announcement->getImage() ?>">
                 <div class="description">
                             <span class="head">
                                 Description:

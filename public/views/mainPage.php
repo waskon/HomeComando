@@ -80,7 +80,13 @@
                 <div id="announcement-1">
                     <img src="public/uploads/<?= $announcement->getImage() ?>">
                     <div>
-                        <h2><?= $announcement->getTitle(); ?></h2>
+                        <h2>
+<!--                            <a href="/announcementDetails/--><?//$announcement->getId(); ?><!--">-->
+                                <?php
+                                    echo sprintf('<a href="/announcementDetails/%s">%s</a>',$announcement->getAnnouncementId(), $announcement->getTitle() )
+                                ?>
+<!--                            --><?//= $announcement->getTitle(); ?>
+                        </h2>
                         <p><?= $announcement->getDescription(); ?></p>
                         <div class="announcement-info">
                             <div class="social-section">
