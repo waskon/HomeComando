@@ -31,6 +31,8 @@ Po zarejestrowaniu się i zalogowaniu na platformie, użytkownik będzie miał m
 ```
 docker-compose up --build
 ```
+4. Wpisanie w pasek przeglądarki adresu:
+> http://localhost:8080/
 
 ## Funkcjonalności
 - Zawiera mechanizm szyfrowania haseł za pomocą funkcji hashującej
