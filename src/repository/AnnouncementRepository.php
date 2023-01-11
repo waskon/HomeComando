@@ -12,7 +12,7 @@ class AnnouncementRepository extends Repository
             SELECT * FROM public.Announcement_details ad
                   INNER JOIN announcement a on a.ann_id = ad.announcement_ann_id
                   INNER JOIN announcement_location al on al.location_id = ad.announcement_location_location_id
-              WHERE details_id = :id
+              WHERE announcement_ann_id = :id
             
         ');
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -71,7 +71,8 @@ class AnnouncementRepository extends Repository
 
         $date = new DateTime();
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO announcement_details (title, description, image, price, size, phone_number, announcement_ann_id, announcement_location_location_id)
+            INSERT INTO announcement_details (title, description, image, price, size, phone_number, 
+                                              announcement_ann_id, announcement_location_location_id)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ');
 
@@ -80,12 +81,11 @@ class AnnouncementRepository extends Repository
             $announcement->getDescription(),
             $announcement->getImage(),
             $announcement->getPrice(),
-            $announcement->getSize(), "123456789",
-//            $announcement->getPhoneNumber(),
+            $announcement->getSize(),
+//            "123456789",
+            $announcement->getPhoneNumber(),
             $announcement_id,
             $location_id
-//            $announcement->getPurpose(),
-//            $announcement->getPropertyType()
 //            $date->format('Y-m-d'),
 //            $assignedById,
 

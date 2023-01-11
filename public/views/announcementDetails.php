@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../public/css/myData.css">
     <link rel="stylesheet" type="text/css" href="../public/css/main-page.css">
     <link rel="stylesheet" type="text/css" href="../public/css/main-styles.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/announcementDetails.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <title>ANNOUNCEMENT DETAILS</title>
@@ -40,8 +41,7 @@
     </nav>
     <main>
         <header class="wrapper">
-            <h1 class="personal-data-sign">
-<!--                Title-->
+            <h1 class="personal-data-sign title">
                 <?php
                 if (isset($announcement)) {
                     echo  $announcement->getTitle().'<br>';
@@ -53,7 +53,7 @@
             <div class="content">
                 <img src="../public/uploads/<?= $announcement->getImage() ?>">
                 <div class="description">
-                            <span class="head">
+                            <span class="head" style="margin-left: 1em ">
                                 Description:
                             </span>
                     <span class="head-label">
@@ -68,7 +68,6 @@
                                 Price
                             </span>
                             <span class="head-label">
-<!--                                100000 zł-->
                                 <?php echo $announcement->getPrice(); ?>
                                 zł
                             </span>
@@ -120,7 +119,6 @@
                                 House Number
                             </span>
                             <span class="head-label">
-<!--                                25-->
                                 <?php echo  $address->getHouseNumber().'<br>'; ?>
                             </span>
                         </div>
@@ -129,26 +127,17 @@
                                 Flat Number
                             </span>
                             <span class="head-label">
-<!--                                3A-->
                                 <?php echo  $address->getFlatNumber().'<br>'; ?>
                             </span>
                         </div>
                         <div class="group-column">
                             <span class="head">
-                                Postal Code
+                                Postal
                             </span>
                             <span class="head-label">
-<!--                                30-456-->
-                                <?php echo  $address->getPostalCode().'<br>'; ?>
-                            </span>
-                        </div>
-                        <div class="group-column">
-                            <span class="head">
-                                City
-                            </span>
-                            <span class="head-label">
-<!--                                Krakow-->
-                                <?php echo  $address->getCity().'<br>'; ?>
+                                <?php echo  $address->getPostalCode().'';
+                                echo "\t";
+                                echo  $address->getCity().'<br>'; ?>
                             </span>
                         </div>
                     </div>
@@ -159,68 +148,3 @@
 </div>
 </body>
 </html>
-
-<style>
-
-    .announcement {
-        display: flex;
-        flex-direction: column;
-        padding: 1em;
-        gap: 2em;
-        overflow: auto;
-    }
-
-    .announcement > div {
-        background-color: #eeeeee;
-        border: 1px solid gray;
-        border-radius: 1em 1em 0 0;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .announcement > div > img {
-        height: 50%;
-        width: 100%;
-        object-fit: cover;
-        border-radius: 1em 1em 0 0;
-    }
-
-    .announcement-info {
-        /*margin-bottom: 2em;*/
-        display: flex;
-        flex-direction: row;
-        text-align: left;
-    }
-
-    .content {
-        display: flex;
-        flex-direction: row;
-        /*width: 100%;*/
-        /*height: 100%;*/
-        background-color: #C1C1C1;
-    }
-
-    .left-tables, .right-tables {
-        justify-content: right;
-        width: 50%;
-        height: 100%;
-    }
-
-    .head {
-        text-align: left;
-        font: normal normal bold 30px/40px Arial;
-    }
-
-    .head-label {
-        margin-left: 5em;
-        margin-right: 5em;
-        display: flex;
-        flex-direction: row;
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        border: 1px solid #BCE0FD;
-        border-radius: 4px;
-    }
-
-</style>

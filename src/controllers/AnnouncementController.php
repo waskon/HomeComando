@@ -62,14 +62,14 @@ class AnnouncementController extends AppController
                 $_FILES['file']['name'], $_POST['price'], $_POST['size'], $_POST['phoneNumber'],
                 $_POST['propertyType'], $_POST['purpose'], 0);
 
-            $propertyAdress = new Address($_POST['street'], $_POST['house_number'], $_POST['flat_number'],
+            $propertyAddress = new Address($_POST['street'], $_POST['house_number'], $_POST['flat_number'],
                 $_POST['postal_code'], $_POST['country']);
             session_start();
             if (!isset($_SESSION) || !array_key_exists("logged_user", $_SESSION)) {
                 die("Not logged In");
             }
             $user = $_SESSION["logged_user"];
-            $this->announcementRepository->addAnnouncement($announcement, $user, $propertyAdress);
+            $this->announcementRepository->addAnnouncement($announcement, $user, $propertyAddress);
 
 //            return $this->render("myEstates", ["messages" => $this->messages, 'announcement' => $announcement]);
             $url = "http://$_SERVER[HTTP_HOST]";

@@ -65,7 +65,7 @@
                     <text>m2</text>
                 </div>
                 <input type="file" name="file"/><br/>
-                <textarea name="phone-number" rows=1 placeholder="phone number"></textarea>
+                <textarea name="phoneNumber" rows=1 placeholder="phone number"></textarea>
                 <div class="property-select propertyType">
                     <select name="propertyType" id="propertyType" class="form-control">
                         <option value="">Select property type:</option>
@@ -102,7 +102,3 @@
 </body>
 
 </html>
-
-<style>
-
-</style>
