@@ -53,7 +53,11 @@
                             Name:
                         </span>
                         <span class="head-label">
-                            Andrzej
+                            <?php
+                            if (isset($user)) {
+                                echo  $user->getName();
+                            }
+                            ?>
                         </span>
                     </div>
                     <div class="group-column">
@@ -61,7 +65,7 @@
                             Surname:
                         </span>
                         <span class="head-label">
-                            Bak
+                            <?php echo $user->getSurname() ?>
                         </span>
                     </div>
                     <div class="group-column">
@@ -69,7 +73,7 @@
                             Email:
                         </span>
                         <span class="head-label">
-                            andrzej.bak@gmail.com
+                            <?php echo $user->getEmail() ?>
                         </span>
                     </div>
                     <div class="group-column">
@@ -77,7 +81,7 @@
                             Country:
                         </span>
                         <span class="head-label">
-                            Poland
+                            <?php echo $user->getCountry() ?>
                         </span>
                     </div>
                 </div>

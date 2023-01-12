@@ -42,18 +42,26 @@ class UserRepository extends Repository
         ]);
     }
 
-//    public function getUserId(User $user): int
-//    {
-//        $stmt = $this->database->connect()->prepare('
-//            SELECT * FROM public.user_data WHERE name = :name AND surname = :surname AND country = :country
-//        ');
-////        $stmt->bindParam(':name', $user->getName(), PDO::PARAM_STR);
-////        $stmt->bindParam(':surname', $user->getSurname(), PDO::PARAM_STR);
-////        $stmt->bindParam(':country', $user->getCountry(), PDO::PARAM_STR);
-//        $stmt->execute();
-//
-//        $data = $stmt->fetch(PDO::FETCH_ASSOC);
-//        return $data['id'];
-//    }
+   public function getUserById(int $id): ?User
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM User_data WHERE user_id = :id
+            ');
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$user) {
+            return null;
+        }
+        return new User(
+            $user['user_id'],
+            $user['name'],
+            $user['surname'],
+            $user['email'],
+            $user['country'],
+            $user['password']
+        );
+    }
 
 }

@@ -81,13 +81,11 @@
                     <img src="public/uploads/<?= $announcement->getImage() ?>">
                     <div>
                         <h2>
-<!--                            <a href="/announcementDetails/--><?//$announcement->getId(); ?><!--">-->
-                                <?php
-                                    echo sprintf('<a href="/announcementDetails/%s">%s</a>',$announcement->getAnnouncementId(), $announcement->getTitle() )
-                                ?>
-<!--                            --><?//= $announcement->getTitle(); ?>
+                            <?php
+                                echo sprintf('<a href="/announcementDetails/%s">%s</a>',$announcement->getAnnouncementId(), $announcement->getTitle() )
+                            ?>
                         </h2>
-                        <p><?= $announcement->getDescription(); ?></p>
+                        <p class="description"><?= $announcement->getDescription(); ?></p>
                         <div class="announcement-info">
                             <div class="social-section">
                                 <i class="material-symbols-rounded"

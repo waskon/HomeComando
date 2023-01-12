@@ -3,6 +3,7 @@
 require_once 'src/controllers/DefaultController.php' ;
 require_once 'src/controllers/SecurityController.php' ;
 require_once 'src/controllers/AnnouncementController.php';
+require_once 'src/controllers/UserController.php';
 
 class Routing {
     public static $routes;
@@ -19,8 +20,6 @@ class Routing {
 
         $urlParts = explode("/", $url);
         $action = $urlParts[0];
-
-//        $action = explode("/", $url)[0];
 
         if(!array_key_exists($action, self::$routes)) {
             die("Wrong url!");

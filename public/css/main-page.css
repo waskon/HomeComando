@@ -135,8 +135,11 @@ header {
 .price{
     font-size: 30px;
     text-align: right;
-    margin: 0%;
+    margin: 0;
     height: auto;
+}
+h2{
+    margin-bottom: 0;
 }
 
 @media (max-width: 800px) {

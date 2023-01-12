@@ -6,8 +6,8 @@ class User
     private $name;
     private $surname;
     private $email;
-    private $password;
     private $country;
+    private $password;
 
     public function __construct(int $user_id, string $name, string $surname, string $email,
                                 string $country, string $password)

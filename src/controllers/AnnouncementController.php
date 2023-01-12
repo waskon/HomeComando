@@ -25,17 +25,14 @@ class AnnouncementController extends AppController
 
     public function mainPage()
     {
+        $this->checkSession();
         $announcements = $this->announcementRepository->getNotices();
         $this->render('mainPage', ['announcements' => $announcements]);
     }
 
     public function myEstates()
     {
-        session_start();
-        if (!isset($_SESSION) || !array_key_exists("logged_user", $_SESSION)) {
-            error_log('Session doesn\'t exist!');
-//            die();
-        }
+        $this->checkSession();
         $user = $_SESSION["logged_user"];
         $userId = $user->getUserId();
         $announcements = $this->announcementRepository->getMyNotices($userId);
@@ -44,6 +41,7 @@ class AnnouncementController extends AppController
 
     public function announcementDetails($announcementId)
     {
+        $this->checkSession();
         $announcement = $this->announcementRepository->getAnnouncement((int)$announcementId);
         $address = $this->addressRepository->getAddressById($announcement->getLocationId());
         $this->render('announcementDetails', ['announcement' => $announcement, 'address' => $address]);
@@ -51,6 +49,7 @@ class AnnouncementController extends AppController
 
     public function addNotice()
     {
+        $this->checkSession();
         if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
 
             move_uploaded_file(
@@ -120,6 +119,14 @@ class AnnouncementController extends AppController
             return false;
         }
         return true;
+    }
+
+    public function checkSession(): void
+    {
+        session_start();
+        if (!isset($_SESSION) || !array_key_exists("logged_user", $_SESSION)) {
+            $this->render('login', ["messages" => ["You are not logged in!"]]);
+        }
     }
 
 }
