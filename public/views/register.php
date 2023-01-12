@@ -42,11 +42,11 @@
                     </div>
                     <div class="registry-label ">
                         <span class="login-label"> Password </span>
-                        <input name="password" class="text-form" type="text">
+                        <input name="password" class="text-form" type="password">
                     </div>
                     <div class="registry-label">
                         <span class="login-label"> Repeat password </span>
-                        <input name="confirmedPassword" class="text-form" type="text">
+                        <input name="confirmedPassword" class="text-form" type="password">
                     </div>
                 </div>
 
