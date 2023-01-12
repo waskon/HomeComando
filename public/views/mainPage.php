@@ -82,7 +82,7 @@
                     <div>
                         <h2>
                             <?php
-                                echo sprintf('<a href="/announcementDetails/%s">%s</a>',$announcement->getAnnouncementId(), $announcement->getTitle() )
+                                echo sprintf('<a href="/announcementDetails/%s">%s</a>',$announcement->getAnnouncementId(), $announcement->getTitle())
                             ?>
                         </h2>
                         <p class="description"><?= $announcement->getDescription(); ?></p>

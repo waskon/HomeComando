@@ -95,7 +95,9 @@ class AnnouncementRepository extends Repository
     public function getNotices(): array
     {
         $result = [];
-        $stmt = $this->database->connect()->prepare('SELECT * FROM Announcement_details');
+        $stmt = $this->database->connect()->prepare('
+        SELECT * FROM Announcement_details
+        ');
         $stmt->execute();
         $notices = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -120,7 +122,7 @@ class AnnouncementRepository extends Repository
     {
         $result = [];
         $stmt = $this->database->connect()->prepare('
-        SELECT  ann.user_id, title, description, image, price, size, type, purpose, announcement_location_location_id 
+        SELECT  ad.announcement_ann_id, ann.user_id, title, description, image, price, size, type, purpose, announcement_location_location_id 
             From announcement ann 
             INNER JOIN announcement_details ad on ann.ann_id = ad.announcement_ann_id
         WHERE
@@ -133,6 +135,7 @@ class AnnouncementRepository extends Repository
         foreach ($notices as $notice) {
             $result[] = new Announcement(
                 $notice['announcement_ann_id'],
+//                $userId,
                 $notice['title'],
                 $notice['description'],
                 $notice['image'],
