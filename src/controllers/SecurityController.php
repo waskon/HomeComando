@@ -3,6 +3,7 @@
 require_once 'AppController.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../repository/UserRepository.php';
+use PragmaRX\Google2FA\Google2FA;
 
 class SecurityController extends AppController
 {
@@ -41,7 +42,7 @@ class SecurityController extends AppController
         $_SESSION['logged_user'] = $user;
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/mainPage");
+        header("Location: {$url}/authorization");
     }
 
     public function register()
@@ -92,4 +93,10 @@ class SecurityController extends AppController
         header("Location: {$url}/login");
     }
 
+    public function authorization()
+    {
+        if (!$this->isPost()) {
+            return $this->render('twoFactorAuth');
+        }
+    }
 }
