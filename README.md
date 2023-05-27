@@ -79,8 +79,6 @@ W widoku "addNotice" pojawia się formularz, który wymaga uzupełnienia danymi 
 Po kliknięciu w tytuł wybranego ogłoszenia, użytkownik zostaje przekierowany do widoku "announcementDetails", który wyświetla zdjęcie oraz wszystkie informacje dotyczące danego ogłoszenia.
 ![image](https://github.com/waskon/HomeComando/assets/79586520/bb0f8037-da9f-45c4-a873-4aad7959ad6e)
 
-### Dodanie ogłoszenia użytkownika
-
 ### Dane profilowe
 Widok "myData" wyświetla dane użytkownika, które podał przy rejestracji.
 Docelowo planowane jest też wprowadzenie funkcjonalności zmiany hasła.
