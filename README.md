@@ -84,6 +84,7 @@ Po kliknięciu w tytuł wybranego ogłoszenia, użytkownik zostaje przekierowany
 ### Dane profilowe
 Widok "myData" wyświetla dane użytkownika, które podał przy rejestracji.
 Docelowo planowane jest też wprowadzenie funkcjonalności zmiany hasła.
+
 ![image](https://github.com/waskon/HomeComando/assets/79586520/40498e62-218d-4ed5-91bf-129fff74e47b)
 
 ## Kontakt
