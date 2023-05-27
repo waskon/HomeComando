@@ -50,31 +50,41 @@ Aby rozpocząć korzystanie z HomeComando należy utworzyć konto użytkownika.
 W tym celu należy kliknąć przycisk "Sign in" w panelu logowania.
 W następnym kroku należy wypełnić formularz i zatwierdzić przyciskiem "Sign in".
 Użytkownik zostaje przekierowany na stronę logowania z wyświetleniem informacji o poprawnej rejestracji.
+![image](https://github.com/waskon/HomeComando/assets/79586520/6c33110a-5644-49f4-9624-ad187f2eb22d)
 
 ### Logowanie
 Aby się zalogować należy podać adres email zatwierdzony przy rejestracji oraz hasło.
 Poprawne logowanie skutkuje przekierowaniem do strony "mainPage".
 Przy nie udanej próbie logowania zostanie wyświetlona informacja o błędnym adresie email lub nie poprawnym haśle.
+![image](https://github.com/waskon/HomeComando/assets/79586520/2e23de18-d199-4e13-8841-ab21a93b1280)
+
+### Weryfikacja 2-etapowa
+Aby się zalogować należy podać tajny klucz generowany przez Google Authenticator co 30sek.
+![image](https://github.com/waskon/HomeComando/assets/79586520/cfc13d59-9ec1-4ca3-88b4-f8fe57264fed)
 
 ### Strona główna
 Strona główna wyświetla listę ogłoszeń nieruchomości ze zdjęciem, opisem, informacjami o cenie oraz powierzchni nieruchomości.
 Dodatkowo umożliwia filtrowanie ogłoszeń po ich atrybutach (rodzaj, maksymalna cena oraz minimalny metraż)
 Przycisk "add announcement" pozwala na dodanie nowego ogłoszenia.
+![image](https://github.com/waskon/HomeComando/assets/79586520/aa8c5c54-7a4b-499a-a0c0-87d2c77a1e15)
 
 ### Pasek nawigacji
 Pasek nawigacji pozwala na sprawne poruszanie się po aplikacji, dzięki czemu możemy przechodzić do interesujących nas widoków lub wylogować się z aplikacji.
 
 ### Dodawanie nowego ogłoszenia
 W widoku "addNotice" pojawia się formularz, który wymaga uzupełnienia danymi koniecznymi do utworzenia ogłoszenia w bazie danych.
+![image](https://github.com/waskon/HomeComando/assets/79586520/7789c10e-046a-4dbb-8a7d-4f80f45ddcea)
 
 ### Pojedyncze Ogłoszenie
 Po kliknięciu w tytuł wybranego ogłoszenia, użytkownik zostaje przekierowany do widoku "announcementDetails", który wyświetla zdjęcie oraz wszystkie informacje dotyczące danego ogłoszenia.
+![image](https://github.com/waskon/HomeComando/assets/79586520/bb0f8037-da9f-45c4-a873-4aad7959ad6e)
 
 ### Dodanie ogłoszenia użytkownika
 
 ### Dane profilowe
 Widok "myData" wyświetla dane użytkownika, które podał przy rejestracji.
 Docelowo planowane jest też wprowadzenie funkcjonalności zmiany hasła.
+![image](https://github.com/waskon/HomeComando/assets/79586520/40498e62-218d-4ed5-91bf-129fff74e47b)
 
 ## Kontakt
 Autor: Konrad Wąs
