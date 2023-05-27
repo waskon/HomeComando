@@ -106,15 +106,15 @@ INSERT INTO Announcement (user_id, type, purpose)
 VALUES (5, 'Home', 'For Sale');
 
 INSERT INTO Announcement_Location (street, house_number, flat_number, postal_code, city)
-VALUES ('Sezamowa', '25B', '3', '30-526', 'Poznań');
+VALUES ('Garncarska', '2', '3', '30-526', 'Poznań');
 INSERT INTO Announcement_Location (street, house_number, flat_number, postal_code, city)
-VALUES ('Ogrodowa', '2A', '5', '24-532', 'Kraków');
+VALUES ('Lea', '25', '5', '24-532', 'Kraków');
 INSERT INTO Announcement_Location (street, house_number, flat_number, postal_code, city)
-VALUES ('Goździkowa', '23A', '1', '24-532', 'Kraków');
+VALUES ('Urzędnicza', '15', '1', '24-532', 'Kraków');
 INSERT INTO Announcement_Location (street, house_number, flat_number, postal_code, city)
-VALUES ('Zbożowa', '26B', '7', '24-532', 'Kraków');
+VALUES ('Szewska', '17', '7', '24-532', 'Kraków');
 INSERT INTO Announcement_Location (street, house_number, flat_number, postal_code, city)
-VALUES ('Zielona', '29B', '2', '24-532', 'Kraków');
+VALUES ('Szczepańska', '2', '2', '24-532', 'Kraków');
 
 INSERT INTO Announcement_Details (title, description, image, price, size, phone_number,
                                   Announcement_ann_Id, Announcement_Location_location_Id)

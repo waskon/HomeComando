@@ -7,6 +7,13 @@
     <link rel="stylesheet" type="text/css" href="../public/css/main-page.css">
     <link rel="stylesheet" type="text/css" href="../public/css/main-styles.css">
     <link rel="stylesheet" type="text/css" href="../public/css/announcementDetails.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <title>ANNOUNCEMENT DETAILS</title>
@@ -44,7 +51,7 @@
             <h1 class="personal-data-sign title">
                 <?php
                 if (isset($announcement)) {
-                    echo  $announcement->getTitle().'<br>';
+                    echo $announcement->getTitle() . '<br>';
                 }
                 ?>
             </h1>
@@ -57,8 +64,7 @@
                                 Description:
                             </span>
                     <span class="head-label">
-<!--                                This is description of property-->
-                        <?php echo $announcement->getDescription().'<br>'; ?>
+                        <?php echo $announcement->getDescription() . '<br>'; ?>
                     </span>
                 </div>
                 <div class="announcement-info">
@@ -77,8 +83,7 @@
                                 Number
                             </span>
                             <span class="head-label">
-<!--                                +48 987 654 321-->
-                                <?php echo $announcement->getPhoneNumber().'<br>'; ?>
+                                <?php echo $announcement->getPhoneNumber() . '<br>'; ?>
                             </span>
                         </div>
                         <div class="group-column">
@@ -86,8 +91,7 @@
                                 Property Type
                             </span>
                             <span class="head-label">
-<!--                                House-->
-                                <?php echo $announcement->getPropertyType().'<br>'; ?>
+                                <?php echo $announcement->getPropertyType() . '<br>'; ?>
                             </span>
                         </div>
                         <div class="group-column">
@@ -95,8 +99,7 @@
                                 Purpose
                             </span>
                             <span class="head-label">
-<!--                                SELL-->
-                                <?php echo $announcement->getPurpose().'<br>'; ?>
+                                <?php echo $announcement->getPurpose() . '<br>'; ?>
                             </span>
                         </div>
                     </div>
@@ -106,10 +109,9 @@
                                 Street
                             </span>
                             <span class="head-label">
-<!--                                Lea-->
                                 <?php
                                 if (isset($address)) {
-                                    echo  $address->getStreet().'<br>';
+                                    echo $address->getStreet() . '<br>';
                                 }
                                 ?>
                             </span>
@@ -119,7 +121,7 @@
                                 House Number
                             </span>
                             <span class="head-label">
-                                <?php echo  $address->getHouseNumber().'<br>'; ?>
+                                <?php echo $address->getHouseNumber() . '<br>'; ?>
                             </span>
                         </div>
                         <div class="group-column">
@@ -127,7 +129,7 @@
                                 Flat Number
                             </span>
                             <span class="head-label">
-                                <?php echo  $address->getFlatNumber().'<br>'; ?>
+                                <?php echo $address->getFlatNumber() . '<br>'; ?>
                             </span>
                         </div>
                         <div class="group-column">
@@ -135,12 +137,36 @@
                                 Postal
                             </span>
                             <span class="head-label">
-                                <?php echo  $address->getPostalCode().'';
+                                <?php echo $address->getPostalCode() . '';
                                 echo "\t";
-                                echo  $address->getCity().'<br>'; ?>
+                                echo $address->getCity() . '<br>'; ?>
                             </span>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <?php
+                    $addressAnnouncement = $address->getPostalCode() . " " . $address->getCity(). " " . $address->getStreet() . " " . $address->getFlatNumber();
+                    ?>
+                    <div id="map"></div>
+                    <script defer>
+                        let latitude = 0
+                        let longitude = 0
+                        async function getCoordinates(address) {
+                            const response = await fetch(`http://api.positionstack.com/v1/forward?access_key=fa76050cdc8e1b9106a0d50222d17098&query=${address}`)
+                            const responseData = await response.json()
+                            const latitude = responseData.data[0].latitude;
+                            const longitude = responseData.data[0].longitude;
+                            var map = L.map('map').setView([latitude, longitude], 18);
+                            L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                maxZoom: 20,
+                                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                            }).addTo(map);
+                            var marker = L.marker([latitude, longitude]).addTo(map);
+                        }
+                        propertyLocal = "<?php echo $addressAnnouncement; ?>"
+                        getCoordinates(propertyLocal)
+                    </script>
                 </div>
             </div>
         </section>
@@ -148,3 +174,10 @@
 </div>
 </body>
 </html>
+
+<style>
+    #map {
+        height: 500px;
+        margin-top: 2em;
+    }
+</style>
